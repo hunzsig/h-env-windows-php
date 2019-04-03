@@ -6,16 +6,17 @@ echo ==================begin========================
 
 cls 
 
-SET XPATH=E:
-SET NGINX_DIR=%XPATH%\Web\nginx-1.15.7\
-SET APACHE_DIR=%XPATH%\Web\Apache24\bin\
+SET XDISK=D:
+SET XPATH=%XDISK%\Web\h-web-env-windows\apache2.4_nginx1.15.7_php7.2.12
+SET NGINX_DIR=%XPATH%\nginx-1.15.7\
+SET APACHE_DIR=%XPATH%\Apache24\bin\
 
 color ff 
 TITLE NAP·þÎñÃæ°å
 
 CLS 
 ECHO.# Nginx+Apache Service
-ECHO.# by hunzsig 20181204
+ECHO.# by hunzsig 20190403
 
 :MENU
 
@@ -57,7 +58,7 @@ IF NOT EXIST "%NGINX_DIR%nginx.exe" (
 ECHO "%NGINX_DIR%nginx.exe" not exist
 goto :eof
 )
-%XPATH% 
+%XDISK% 
 cd "%NGINX_DIR%" 
 winsw.exe start
 ECHO.
@@ -66,7 +67,7 @@ IF NOT EXIST "%APACHE_DIR%httpd.exe" (
 ECHO "%APACHE_DIR%httpd.exe" not exist
 goto :eof
 )
-%XPATH% 
+%XDISK% 
 cd "%APACHE_DIR%" 
 httpd.exe -k start
 ECHO.
@@ -78,7 +79,7 @@ IF NOT EXIST "%NGINX_DIR%nginx.exe" (
 ECHO "%NGINX_DIR%nginx.exe" not exist
 goto :eof
 )
-%XPATH% 
+%XDISK% 
 cd "%NGINX_DIR%" 
 winsw.exe stop
 taskkill /F /IM nginx.exe > nul
@@ -88,7 +89,7 @@ IF NOT EXIST "%APACHE_DIR%httpd.exe" (
 ECHO "%APACHE_DIR%httpd.exe" not exist
 goto :eof
 )
-%XPATH% 
+%XDISK% 
 cd "%APACHE_DIR%" 
 httpd.exe -k stop
 ECHO.
@@ -100,7 +101,7 @@ IF NOT EXIST "%NGINX_DIR%nginx.exe" (
 ECHO "%NGINX_DIR%nginx.exe" not exist
 goto :eof
 )
-%XPATH% 
+%XDISK% 
 cd "%NGINX_DIR%" 
 winsw.exe install
 ECHO.
@@ -109,7 +110,7 @@ IF NOT EXIST "%APACHE_DIR%httpd.exe" (
 ECHO "%APACHE_DIR%httpd.exe" not exist
 goto :eof
 )
-%XPATH% 
+%XDISK% 
 cd "%APACHE_DIR%"
 httpd.exe -k install
 ECHO.
@@ -121,7 +122,7 @@ IF NOT EXIST "%NGINX_DIR%nginx.exe" (
 ECHO "%NGINX_DIR%nginx.exe" not exist
 goto :eof
 )
-%XPATH% 
+%XDISK% 
 cd "%NGINX_DIR%"
 winsw.exe uninstall
 ECHO.
@@ -130,7 +131,7 @@ IF NOT EXIST "%APACHE_DIR%httpd.exe" (
 ECHO "%APACHE_DIR%httpd.exe" not exist
 goto :eof
 )
-%XPATH% 
+%XDISK% 
 cd "%APACHE_DIR%"
 httpd.exe -k uninstall
 ECHO.
