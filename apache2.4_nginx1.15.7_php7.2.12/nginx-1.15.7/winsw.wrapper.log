@@ -1,0 +1,311 @@
+2018-12-04 11:51:37,986 DEBUG - Starting ServiceWrapper in the CLI mode
+2018-12-04 11:51:38,503 INFO  - Stopping the service with id 'Nginx'
+2018-12-04 11:51:38,503 FATAL - WMI Operation failure: NoSuchService
+WMI.WmiException: NoSuchService
+   在 winsw.WrapperService.ThrowNoSuchService()
+   在 winsw.WrapperService.Run(String[] _args, ServiceDescriptor descriptor)
+   在 winsw.WrapperService.Main(String[] args)
+2018-12-04 11:51:38,804 DEBUG - Starting ServiceWrapper in the CLI mode
+2018-12-04 11:51:39,289 INFO  - Uninstalling the service with id 'Nginx'
+2018-12-04 11:51:39,293 WARN  - The service with id 'Nginx' does not exist. Nothing to uninstall
+2018-12-04 11:51:39,293 DEBUG - Completed. Exit code is 0
+2018-12-04 11:54:23,549 DEBUG - Starting ServiceWrapper in the CLI mode
+2018-12-04 11:54:24,035 INFO  - Starting the service with id 'Nginx'
+2018-12-04 11:54:24,035 FATAL - WMI Operation failure: NoSuchService
+WMI.WmiException: NoSuchService
+   在 winsw.WrapperService.ThrowNoSuchService()
+   在 winsw.WrapperService.Run(String[] _args, ServiceDescriptor descriptor)
+   在 winsw.WrapperService.Main(String[] args)
+2018-12-04 11:54:28,969 DEBUG - Starting ServiceWrapper in the CLI mode
+2018-12-04 11:54:29,455 INFO  - Stopping the service with id 'Nginx'
+2018-12-04 11:54:29,463 FATAL - WMI Operation failure: NoSuchService
+WMI.WmiException: NoSuchService
+   在 winsw.WrapperService.ThrowNoSuchService()
+   在 winsw.WrapperService.Run(String[] _args, ServiceDescriptor descriptor)
+   在 winsw.WrapperService.Main(String[] args)
+2018-12-04 11:55:02,221 DEBUG - Starting ServiceWrapper in the CLI mode
+2018-12-04 11:55:02,715 INFO  - Stopping the service with id 'Nginx'
+2018-12-04 11:55:02,715 FATAL - WMI Operation failure: NoSuchService
+WMI.WmiException: NoSuchService
+   在 winsw.WrapperService.ThrowNoSuchService()
+   在 winsw.WrapperService.Run(String[] _args, ServiceDescriptor descriptor)
+   在 winsw.WrapperService.Main(String[] args)
+2018-12-04 11:55:30,056 DEBUG - Starting ServiceWrapper in the CLI mode
+2018-12-04 11:55:30,556 INFO  - Stopping the service with id 'Nginx'
+2018-12-04 11:55:30,556 FATAL - WMI Operation failure: NoSuchService
+WMI.WmiException: NoSuchService
+   在 winsw.WrapperService.ThrowNoSuchService()
+   在 winsw.WrapperService.Run(String[] _args, ServiceDescriptor descriptor)
+   在 winsw.WrapperService.Main(String[] args)
+2018-12-04 12:00:48,619 DEBUG - Starting ServiceWrapper in the CLI mode
+2018-12-04 12:00:49,205 INFO  - Starting the service with id 'Nginx'
+2018-12-04 12:00:49,209 FATAL - WMI Operation failure: NoSuchService
+WMI.WmiException: NoSuchService
+   在 winsw.WrapperService.ThrowNoSuchService()
+   在 winsw.WrapperService.Run(String[] _args, ServiceDescriptor descriptor)
+   在 winsw.WrapperService.Main(String[] args)
+2018-12-04 12:08:37,435 DEBUG - Starting ServiceWrapper in the CLI mode
+2018-12-04 12:08:37,914 INFO  - Installing the service with id 'Nginx'
+2018-12-04 12:08:37,932 DEBUG - Completed. Exit code is 0
+2018-12-04 12:08:42,975 DEBUG - Starting ServiceWrapper in the CLI mode
+2018-12-04 12:08:43,469 INFO  - Starting the service with id 'Nginx'
+2018-12-04 12:08:43,705 INFO  - Starting ServiceWrapper in the service mode
+2018-12-04 12:08:43,725 DEBUG - Completed. Exit code is 0
+2018-12-04 12:08:43,744 INFO  - Starting E:\Web\nginx-1.15.7\nginx.exe 
+2018-12-04 12:08:43,744 INFO  - Starting E:\Web\nginx-1.15.7\nginx.exe 
+2018-12-04 12:08:43,760 INFO  - Started process 224
+2018-12-04 12:08:43,768 DEBUG - Forwarding logs of the process System.Diagnostics.Process (nginx) to winsw.DefaultLogAppender
+2018-12-04 12:08:54,525 DEBUG - Starting ServiceWrapper in the CLI mode
+2018-12-04 12:08:55,005 INFO  - Stopping the service with id 'Nginx'
+2018-12-04 12:08:55,025 DEBUG - Completed. Exit code is 0
+2018-12-04 12:08:55,025 INFO  - Stopping Nginx
+2018-12-04 12:08:55,025 DEBUG - ProcessKill 224
+2018-12-04 12:08:55,119 INFO  - Found child process: 15728 Name: nginx.exe
+2018-12-04 12:08:55,119 INFO  - Found child process: 9724 Name: nginx.exe
+2018-12-04 12:08:55,119 INFO  - Found child process: 15624 Name: nginx.exe
+2018-12-04 12:08:55,119 INFO  - Found child process: 5168 Name: nginx.exe
+2018-12-04 12:08:55,157 INFO  - Found child process: 1032 Name: conhost.exe
+2018-12-04 12:08:55,195 INFO  - Stopping process 1032
+2018-12-04 12:08:55,195 INFO  - Send SIGINT 1032
+2018-12-04 12:08:55,195 WARN  - SIGINT to 1032 failed - Killing as fallback
+2018-12-04 12:08:55,195 INFO  - Stopping process 15728
+2018-12-04 12:08:55,205 INFO  - Send SIGINT 15728
+2018-12-04 12:08:55,205 WARN  - SIGINT to 15728 failed - Killing as fallback
+2018-12-04 12:08:55,245 INFO  - Found child process: 14720 Name: conhost.exe
+2018-12-04 12:08:55,283 INFO  - Stopping process 14720
+2018-12-04 12:08:55,283 INFO  - Send SIGINT 14720
+2018-12-04 12:08:55,283 WARN  - SIGINT to 14720 failed - Killing as fallback
+2018-12-04 12:08:55,283 INFO  - Stopping process 9724
+2018-12-04 12:08:55,283 INFO  - Send SIGINT 9724
+2018-12-04 12:08:55,283 WARN  - SIGINT to 9724 failed - Killing as fallback
+2018-12-04 12:08:55,323 INFO  - Found child process: 14728 Name: conhost.exe
+2018-12-04 12:08:55,361 INFO  - Stopping process 14728
+2018-12-04 12:08:55,361 INFO  - Send SIGINT 14728
+2018-12-04 12:08:55,361 WARN  - SIGINT to 14728 failed - Killing as fallback
+2018-12-04 12:08:55,361 INFO  - Stopping process 15624
+2018-12-04 12:08:55,361 INFO  - Send SIGINT 15624
+2018-12-04 12:08:55,369 WARN  - SIGINT to 15624 failed - Killing as fallback
+2018-12-04 12:08:55,406 INFO  - Found child process: 10100 Name: conhost.exe
+2018-12-04 12:08:55,442 INFO  - Stopping process 10100
+2018-12-04 12:08:55,444 INFO  - Send SIGINT 10100
+2018-12-04 12:08:55,444 WARN  - SIGINT to 10100 failed - Killing as fallback
+2018-12-04 12:08:55,444 INFO  - Stopping process 5168
+2018-12-04 12:08:55,449 INFO  - Send SIGINT 5168
+2018-12-04 12:08:55,449 WARN  - SIGINT to 5168 failed - Killing as fallback
+2018-12-04 12:08:55,449 INFO  - Stopping process 224
+2018-12-04 12:08:55,449 INFO  - Send SIGINT 224
+2018-12-04 12:08:55,449 WARN  - SIGINT to 224 failed - Killing as fallback
+2018-12-04 12:08:55,458 INFO  - Finished Nginx
+2018-12-04 12:08:55,458 DEBUG - Completed. Exit code is 0
+2018-12-04 12:11:36,344 DEBUG - Starting ServiceWrapper in the CLI mode
+2018-12-04 12:11:36,835 INFO  - Stopping the service with id 'Nginx'
+2018-12-04 12:11:36,855 FATAL - WMI Operation failure: ServiceCannotAcceptControl
+WMI.WmiException: ServiceCannotAcceptControl
+   在 WMI.WmiRoot.BaseHandler.CheckError(ManagementBaseObject result)
+   在 WMI.WmiRoot.InstanceHandler.Invoke(Object proxy, MethodInfo method, Object[] args)
+   在 WMI.Win32ServiceProxy.StopService()
+   在 winsw.WrapperService.Run(String[] _args, ServiceDescriptor descriptor)
+   在 winsw.WrapperService.Main(String[] args)
+2018-12-04 12:11:54,106 DEBUG - Starting ServiceWrapper in the CLI mode
+2018-12-04 12:11:54,602 INFO  - Starting the service with id 'Nginx'
+2018-12-04 12:11:54,839 INFO  - Starting ServiceWrapper in the service mode
+2018-12-04 12:11:54,863 DEBUG - Completed. Exit code is 0
+2018-12-04 12:11:54,871 INFO  - Starting E:\Web\nginx-1.15.7\nginx.exe 
+2018-12-04 12:11:54,879 INFO  - Starting E:\Web\nginx-1.15.7\nginx.exe 
+2018-12-04 12:11:54,887 INFO  - Started process 14932
+2018-12-04 12:11:54,895 DEBUG - Forwarding logs of the process System.Diagnostics.Process (nginx) to winsw.DefaultLogAppender
+2018-12-04 12:12:06,055 DEBUG - Starting ServiceWrapper in the CLI mode
+2018-12-04 12:12:06,529 INFO  - Stopping the service with id 'Nginx'
+2018-12-04 12:12:06,537 DEBUG - Completed. Exit code is 0
+2018-12-04 12:12:06,545 INFO  - Stopping Nginx
+2018-12-04 12:12:06,545 DEBUG - ProcessKill 14932
+2018-12-04 12:12:06,632 INFO  - Found child process: 8024 Name: nginx.exe
+2018-12-04 12:12:06,632 INFO  - Found child process: 11812 Name: nginx.exe
+2018-12-04 12:12:06,632 INFO  - Found child process: 15620 Name: nginx.exe
+2018-12-04 12:12:06,632 INFO  - Found child process: 16040 Name: nginx.exe
+2018-12-04 12:12:06,672 INFO  - Found child process: 12368 Name: conhost.exe
+2018-12-04 12:12:06,707 INFO  - Stopping process 12368
+2018-12-04 12:12:06,714 INFO  - Send SIGINT 12368
+2018-12-04 12:12:06,714 WARN  - SIGINT to 12368 failed - Killing as fallback
+2018-12-04 12:12:06,719 INFO  - Stopping process 8024
+2018-12-04 12:12:06,719 INFO  - Send SIGINT 8024
+2018-12-04 12:12:06,719 WARN  - SIGINT to 8024 failed - Killing as fallback
+2018-12-04 12:12:06,755 INFO  - Found child process: 14760 Name: conhost.exe
+2018-12-04 12:12:06,793 INFO  - Stopping process 14760
+2018-12-04 12:12:06,793 INFO  - Send SIGINT 14760
+2018-12-04 12:12:06,793 WARN  - SIGINT to 14760 failed - Killing as fallback
+2018-12-04 12:12:06,793 INFO  - Stopping process 11812
+2018-12-04 12:12:06,801 INFO  - Send SIGINT 11812
+2018-12-04 12:12:06,801 WARN  - SIGINT to 11812 failed - Killing as fallback
+2018-12-04 12:12:06,839 INFO  - Found child process: 10860 Name: conhost.exe
+2018-12-04 12:12:06,886 INFO  - Stopping process 10860
+2018-12-04 12:12:06,886 INFO  - Send SIGINT 10860
+2018-12-04 12:12:06,886 WARN  - SIGINT to 10860 failed - Killing as fallback
+2018-12-04 12:12:06,886 INFO  - Stopping process 15620
+2018-12-04 12:12:06,886 INFO  - Send SIGINT 15620
+2018-12-04 12:12:06,886 WARN  - SIGINT to 15620 failed - Killing as fallback
+2018-12-04 12:12:06,926 INFO  - Found child process: 14756 Name: conhost.exe
+2018-12-04 12:12:06,965 INFO  - Stopping process 14756
+2018-12-04 12:12:06,965 INFO  - Send SIGINT 14756
+2018-12-04 12:12:06,965 WARN  - SIGINT to 14756 failed - Killing as fallback
+2018-12-04 12:12:06,973 INFO  - Stopping process 16040
+2018-12-04 12:12:06,973 INFO  - Send SIGINT 16040
+2018-12-04 12:12:06,973 WARN  - SIGINT to 16040 failed - Killing as fallback
+2018-12-04 12:12:06,973 INFO  - Stopping process 14932
+2018-12-04 12:12:06,973 INFO  - Send SIGINT 14932
+2018-12-04 12:12:06,973 WARN  - SIGINT to 14932 failed - Killing as fallback
+2018-12-04 12:12:06,973 INFO  - Finished Nginx
+2018-12-04 12:12:06,973 DEBUG - Completed. Exit code is 0
+2018-12-04 12:12:28,315 DEBUG - Starting ServiceWrapper in the CLI mode
+2018-12-04 12:12:28,795 INFO  - Uninstalling the service with id 'Nginx'
+2018-12-04 12:12:28,804 DEBUG - Completed. Exit code is 0
+2018-12-04 12:12:38,345 DEBUG - Starting ServiceWrapper in the CLI mode
+2018-12-04 12:12:38,824 INFO  - Installing the service with id 'Nginx'
+2018-12-04 12:12:38,832 DEBUG - Completed. Exit code is 0
+2018-12-04 12:12:42,288 DEBUG - Starting ServiceWrapper in the CLI mode
+2018-12-04 12:12:42,772 INFO  - Starting the service with id 'Nginx'
+2018-12-04 12:12:43,006 INFO  - Starting ServiceWrapper in the service mode
+2018-12-04 12:12:43,021 DEBUG - Completed. Exit code is 0
+2018-12-04 12:12:43,037 INFO  - Starting E:\Web\nginx-1.15.7\nginx.exe 
+2018-12-04 12:12:43,037 INFO  - Starting E:\Web\nginx-1.15.7\nginx.exe 
+2018-12-04 12:12:43,046 INFO  - Started process 12364
+2018-12-04 12:12:43,053 DEBUG - Forwarding logs of the process System.Diagnostics.Process (nginx) to winsw.DefaultLogAppender
+2018-12-04 12:12:49,567 DEBUG - Starting ServiceWrapper in the CLI mode
+2018-12-04 12:12:50,062 INFO  - Stopping the service with id 'Nginx'
+2018-12-04 12:12:50,078 DEBUG - Completed. Exit code is 0
+2018-12-04 12:12:50,078 INFO  - Stopping Nginx
+2018-12-04 12:12:50,078 DEBUG - ProcessKill 12364
+2018-12-04 12:12:50,163 INFO  - Found child process: 7460 Name: nginx.exe
+2018-12-04 12:12:50,163 INFO  - Found child process: 14628 Name: nginx.exe
+2018-12-04 12:12:50,163 INFO  - Found child process: 15032 Name: nginx.exe
+2018-12-04 12:12:50,163 INFO  - Found child process: 15288 Name: nginx.exe
+2018-12-04 12:12:50,202 INFO  - Found child process: 2696 Name: conhost.exe
+2018-12-04 12:12:50,235 INFO  - Stopping process 2696
+2018-12-04 12:12:50,245 INFO  - Send SIGINT 2696
+2018-12-04 12:12:50,245 WARN  - SIGINT to 2696 failed - Killing as fallback
+2018-12-04 12:12:50,245 INFO  - Stopping process 7460
+2018-12-04 12:12:50,245 INFO  - Send SIGINT 7460
+2018-12-04 12:12:50,245 WARN  - SIGINT to 7460 failed - Killing as fallback
+2018-12-04 12:12:50,288 INFO  - Found child process: 4088 Name: conhost.exe
+2018-12-04 12:12:50,326 INFO  - Stopping process 4088
+2018-12-04 12:12:50,326 INFO  - Send SIGINT 4088
+2018-12-04 12:12:50,326 WARN  - SIGINT to 4088 failed - Killing as fallback
+2018-12-04 12:12:50,326 INFO  - Stopping process 14628
+2018-12-04 12:12:50,326 INFO  - Send SIGINT 14628
+2018-12-04 12:12:50,326 WARN  - SIGINT to 14628 failed - Killing as fallback
+2018-12-04 12:12:50,364 INFO  - Found child process: 15768 Name: conhost.exe
+2018-12-04 12:12:50,404 INFO  - Stopping process 15768
+2018-12-04 12:12:50,409 INFO  - Send SIGINT 15768
+2018-12-04 12:12:50,409 WARN  - SIGINT to 15768 failed - Killing as fallback
+2018-12-04 12:12:50,409 INFO  - Stopping process 15032
+2018-12-04 12:12:50,409 INFO  - Send SIGINT 15032
+2018-12-04 12:12:50,409 WARN  - SIGINT to 15032 failed - Killing as fallback
+2018-12-04 12:12:50,448 INFO  - Found child process: 16344 Name: conhost.exe
+2018-12-04 12:12:50,488 INFO  - Stopping process 16344
+2018-12-04 12:12:50,496 INFO  - Send SIGINT 16344
+2018-12-04 12:12:50,496 WARN  - SIGINT to 16344 failed - Killing as fallback
+2018-12-04 12:12:50,496 INFO  - Stopping process 15288
+2018-12-04 12:12:50,496 INFO  - Send SIGINT 15288
+2018-12-04 12:12:50,496 WARN  - SIGINT to 15288 failed - Killing as fallback
+2018-12-04 12:12:50,504 INFO  - Stopping process 12364
+2018-12-04 12:12:50,504 INFO  - Send SIGINT 12364
+2018-12-04 12:12:50,504 WARN  - SIGINT to 12364 failed - Killing as fallback
+2018-12-04 12:12:50,510 INFO  - Finished Nginx
+2018-12-04 12:12:50,510 DEBUG - Completed. Exit code is 0
+2018-12-04 12:15:35,094 DEBUG - Starting ServiceWrapper in the CLI mode
+2018-12-04 12:15:35,635 INFO  - Stopping the service with id 'Nginx'
+2018-12-04 12:15:35,644 FATAL - WMI Operation failure: ServiceCannotAcceptControl
+WMI.WmiException: ServiceCannotAcceptControl
+   在 WMI.WmiRoot.BaseHandler.CheckError(ManagementBaseObject result)
+   在 WMI.WmiRoot.InstanceHandler.Invoke(Object proxy, MethodInfo method, Object[] args)
+   在 WMI.Win32ServiceProxy.StopService()
+   在 winsw.WrapperService.Run(String[] _args, ServiceDescriptor descriptor)
+   在 winsw.WrapperService.Main(String[] args)
+2018-12-04 12:15:40,225 DEBUG - Starting ServiceWrapper in the CLI mode
+2018-12-04 12:15:40,712 INFO  - Starting the service with id 'Nginx'
+2018-12-04 12:15:40,942 INFO  - Starting ServiceWrapper in the service mode
+2018-12-04 12:15:40,968 DEBUG - Completed. Exit code is 0
+2018-12-04 12:15:40,976 INFO  - Starting E:\Web\nginx-1.15.7\nginx.exe 
+2018-12-04 12:15:40,981 INFO  - Starting E:\Web\nginx-1.15.7\nginx.exe 
+2018-12-04 12:15:40,989 INFO  - Started process 12056
+2018-12-04 12:15:40,997 DEBUG - Forwarding logs of the process System.Diagnostics.Process (nginx) to winsw.DefaultLogAppender
+2018-12-04 12:15:47,526 DEBUG - Starting ServiceWrapper in the CLI mode
+2018-12-04 12:15:48,014 INFO  - Stopping the service with id 'Nginx'
+2018-12-04 12:15:48,022 DEBUG - Completed. Exit code is 0
+2018-12-04 12:15:48,022 INFO  - Stopping Nginx
+2018-12-04 12:15:48,022 DEBUG - ProcessKill 12056
+2018-12-04 12:15:48,122 INFO  - Found child process: 11500 Name: nginx.exe
+2018-12-04 12:15:48,122 INFO  - Found child process: 12112 Name: nginx.exe
+2018-12-04 12:15:48,122 INFO  - Found child process: 1312 Name: nginx.exe
+2018-12-04 12:15:48,122 INFO  - Found child process: 1560 Name: nginx.exe
+2018-12-04 12:15:48,162 INFO  - Stopping process 11500
+2018-12-04 12:15:48,170 INFO  - Process 11500 is already stopped
+System.ArgumentException: ID 为 11500 的进程当前未运行。
+   在 System.Diagnostics.Process.GetProcessById(Int32 processId, String machineName)
+   在 winsw.Util.ProcessHelper.StopProcess(Int32 pid, TimeSpan stopTimeout)
+2018-12-04 12:15:48,211 INFO  - Stopping process 12112
+2018-12-04 12:15:48,224 INFO  - Process 12112 is already stopped
+System.ArgumentException: ID 为 12112 的进程当前未运行。
+   在 System.Diagnostics.Process.GetProcessById(Int32 processId, String machineName)
+   在 winsw.Util.ProcessHelper.StopProcess(Int32 pid, TimeSpan stopTimeout)
+2018-12-04 12:15:48,256 INFO  - Stopping process 1312
+2018-12-04 12:15:48,256 INFO  - Process 1312 is already stopped
+System.ArgumentException: ID 为 1312 的进程当前未运行。
+   在 System.Diagnostics.Process.GetProcessById(Int32 processId, String machineName)
+   在 winsw.Util.ProcessHelper.StopProcess(Int32 pid, TimeSpan stopTimeout)
+2018-12-04 12:15:48,288 INFO  - Stopping process 1560
+2018-12-04 12:15:48,296 INFO  - Process 1560 is already stopped
+System.ArgumentException: ID 为 1560 的进程当前未运行。
+   在 System.Diagnostics.Process.GetProcessById(Int32 processId, String machineName)
+   在 winsw.Util.ProcessHelper.StopProcess(Int32 pid, TimeSpan stopTimeout)
+2018-12-04 12:15:48,296 INFO  - Stopping process 12056
+2018-12-04 12:15:48,296 INFO  - Process 12056 is already stopped
+System.ArgumentException: ID 为 12056 的进程当前未运行。
+   在 System.Diagnostics.Process.GetProcessById(Int32 processId, String machineName)
+   在 winsw.Util.ProcessHelper.StopProcess(Int32 pid, TimeSpan stopTimeout)
+2018-12-04 12:15:48,296 INFO  - Finished Nginx
+2018-12-04 12:15:48,296 DEBUG - Completed. Exit code is 0
+2018-12-04 12:15:55,189 DEBUG - Starting ServiceWrapper in the CLI mode
+2018-12-04 12:15:55,661 INFO  - Starting the service with id 'Nginx'
+2018-12-04 12:15:55,888 INFO  - Starting ServiceWrapper in the service mode
+2018-12-04 12:15:55,905 DEBUG - Completed. Exit code is 0
+2018-12-04 12:15:55,914 INFO  - Starting E:\Web\nginx-1.15.7\nginx.exe 
+2018-12-04 12:15:55,914 INFO  - Starting E:\Web\nginx-1.15.7\nginx.exe 
+2018-12-04 12:15:55,935 INFO  - Started process 14680
+2018-12-04 12:15:55,944 DEBUG - Forwarding logs of the process System.Diagnostics.Process (nginx) to winsw.DefaultLogAppender
+2018-12-04 12:23:19,258 DEBUG - Starting ServiceWrapper in the CLI mode
+2018-12-04 12:23:19,765 INFO  - Stopping the service with id 'Nginx'
+2018-12-04 12:23:19,778 DEBUG - Completed. Exit code is 0
+2018-12-04 12:23:19,780 INFO  - Stopping Nginx
+2018-12-04 12:23:19,780 DEBUG - ProcessKill 14680
+2018-12-04 12:23:19,882 INFO  - Found child process: 3736 Name: nginx.exe
+2018-12-04 12:23:19,883 INFO  - Found child process: 9724 Name: nginx.exe
+2018-12-04 12:23:19,883 INFO  - Found child process: 4636 Name: nginx.exe
+2018-12-04 12:23:19,884 INFO  - Found child process: 8384 Name: nginx.exe
+2018-12-04 12:23:19,925 INFO  - Stopping process 3736
+2018-12-04 12:23:19,931 INFO  - Process 3736 is already stopped
+System.ArgumentException: ID 为 3736 的进程当前未运行。
+   在 System.Diagnostics.Process.GetProcessById(Int32 processId, String machineName)
+   在 winsw.Util.ProcessHelper.StopProcess(Int32 pid, TimeSpan stopTimeout)
+2018-12-04 12:23:19,981 INFO  - Stopping process 9724
+2018-12-04 12:23:19,983 INFO  - Process 9724 is already stopped
+System.ArgumentException: ID 为 9724 的进程当前未运行。
+   在 System.Diagnostics.Process.GetProcessById(Int32 processId, String machineName)
+   在 winsw.Util.ProcessHelper.StopProcess(Int32 pid, TimeSpan stopTimeout)
+2018-12-04 12:23:20,019 INFO  - Stopping process 4636
+2018-12-04 12:23:20,022 INFO  - Process 4636 is already stopped
+System.ArgumentException: ID 为 4636 的进程当前未运行。
+   在 System.Diagnostics.Process.GetProcessById(Int32 processId, String machineName)
+   在 winsw.Util.ProcessHelper.StopProcess(Int32 pid, TimeSpan stopTimeout)
+2018-12-04 12:23:20,061 INFO  - Stopping process 8384
+2018-12-04 12:23:20,064 INFO  - Process 8384 is already stopped
+System.ArgumentException: ID 为 8384 的进程当前未运行。
+   在 System.Diagnostics.Process.GetProcessById(Int32 processId, String machineName)
+   在 winsw.Util.ProcessHelper.StopProcess(Int32 pid, TimeSpan stopTimeout)
+2018-12-04 12:23:20,064 INFO  - Stopping process 14680
+2018-12-04 12:23:20,067 INFO  - Process 14680 is already stopped
+System.ArgumentException: ID 为 14680 的进程当前未运行。
+   在 System.Diagnostics.Process.GetProcessById(Int32 processId, String machineName)
+   在 winsw.Util.ProcessHelper.StopProcess(Int32 pid, TimeSpan stopTimeout)
+2018-12-04 12:23:20,069 INFO  - Finished Nginx
+2018-12-04 12:23:20,070 DEBUG - Completed. Exit code is 0
