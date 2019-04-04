@@ -7,47 +7,51 @@ echo ==================begin========================
 cls 
 
 SET XDISK=D:
-SET XPATH=%XDISK%\Web\h-web-env-windows\apache2.4_nginx1.15.10_php7.3.4
-SET NGINX_DIR=%XPATH%\nginx-1.15.10\
+SET XPATH=%XDISK%\Web\h-web-env-windows\apache2.4_nginx1.15.7_php7.2.12
 SET APACHE_DIR=%XPATH%\Apache24\bin\
+SET NGINX_DIR=%XPATH%\nginx-1.15.7\
+SET REDIS_DIR=%XPATH%\Redis-x64-3.2.100\
 
 color ff 
-TITLE NAP控制面板
+TITLE ANPR 控制面板
 
 CLS 
-ECHO.# Nginx+Apache+Php
-ECHO.# by hunzsig 20190403
+ECHO.# Apache+Nginx+Php+Redis
+ECHO.# by hunzsig 20190404
 
 :MENU
 
 ECHO.----------------------进程列表----------------------
 tasklist|findstr /i "nginx.exe"
 tasklist|findstr /i "httpd.exe"
+tasklist|findstr /i "redis-server.exe"
 ECHO.----------------------------------------------------
-ECHO.[1] 启动/重启[NAP模式]
-ECHO.[2] 启动/重启[AP模式]
+ECHO.[1] 启动/重启[ANPR模式]
+ECHO.[2] 启动/重启[APR模式]
 ECHO.[9] 关闭
 ECHO.[0] 退出 
 ECHO.输入功能号:
 
 set /p ID=
-IF "%id%"=="1" GOTO startNAP
-IF "%id%"=="2" GOTO startAP
+IF "%id%"=="1" GOTO startANPR
+IF "%id%"=="2" GOTO startAPR
 IF "%id%"=="9" GOTO stop 
 IF "%id%"=="0" EXIT
 PAUSE 
 
 
 
-:startNAP 
+:startANPR 
 call :shutdown
-call :startNginx
 call :startApache
+call :startNginx
+call :startRedis
 GOTO MENU
 
-:startAP 
+:startAPR 
 call :shutdown
 call :startApache
+call :startRedis
 GOTO MENU
 
 :stop 
@@ -55,6 +59,7 @@ call :shutdown
 GOTO MENU
 
 :shutdown
+call :shutdownRedis
 call :shutdownNginx
 call :shutdownApache
 goto :eof
@@ -96,6 +101,26 @@ goto :eof
 %XDISK% 
 cd "%APACHE_DIR%" 
 RunHiddenConsole httpd.exe
+ECHO.OK
+ECHO.
+goto :eof
+
+:shutdownRedis
+ECHO.Stopping Redis...... 
+taskkill /F /IM redis-server.exe > nul
+ECHO.OK
+ECHO. 
+goto :eof
+
+:startRedis
+ECHO.Start Redis...... 
+IF NOT EXIST "%REDIS_DIR%redis-server.exe" (
+ECHO "%REDIS_DIR%redis-server.exe" not exist
+goto :eof
+)
+%XDISK% 
+cd "%REDIS_DIR%" 
+RunHiddenConsole redis-server.exe
 ECHO.OK
 ECHO.
 goto :eof

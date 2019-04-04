@@ -8,21 +8,23 @@ cls
 
 SET XDISK=D:
 SET XPATH=%XDISK%\Web\h-web-env-windows\apache2.4_nginx1.15.10_php7.3.4
-SET NGINX_DIR=%XPATH%\nginx-1.15.10\
 SET APACHE_DIR=%XPATH%\Apache24\bin\
+SET NGINX_DIR=%XPATH%\nginx-1.15.10\
+SET REDIS_DIR=%XPATH%\Redis-x64-3.2.100\
 
 color ff 
-TITLE NAP服务面板
+TITLE ANPR 服务面板
 
 CLS 
-ECHO.# Nginx+Apache Service
-ECHO.# by hunzsig 20190403
+ECHO.# Apache+Nginx+Php+Redis Service
+ECHO.# by hunzsig 20190404
 
 :MENU
 
 ECHO.----------------------进程列表----------------------
 tasklist|findstr /i "nginx.exe"
 tasklist|findstr /i "httpd.exe"
+tasklist|findstr /i "redis-server.exe"
 ECHO.----------------------------------------------------
 ECHO.[1] 启动服务
 ECHO.[2] 停止服务
@@ -71,6 +73,15 @@ goto :eof
 cd "%APACHE_DIR%" 
 httpd.exe -k start
 ECHO.
+ECHO.Start Redis...... 
+IF NOT EXIST "%REDIS_DIR%redis-server.exe" (
+ECHO "%REDIS_DIR%redis-server.exe" not exist
+goto :eof
+)
+%XDISK% 
+cd "%REDIS_DIR%" 
+redis-server --service-start
+ECHO.
 goto :eof
 
 :stopX
@@ -93,6 +104,15 @@ goto :eof
 cd "%APACHE_DIR%" 
 httpd.exe -k stop
 ECHO.
+ECHO.Stop Redis...... 
+IF NOT EXIST "%REDIS_DIR%redis-server.exe" (
+ECHO "%REDIS_DIR%redis-server.exe" not exist
+goto :eof
+)
+%XDISK% 
+cd "%REDIS_DIR%" 
+redis-server --service-stop
+ECHO.
 goto :eof
 
 :registerX
@@ -114,7 +134,18 @@ goto :eof
 cd "%APACHE_DIR%"
 httpd.exe -k install
 ECHO.
+ECHO.Register Redis...... 
+IF NOT EXIST "%REDIS_DIR%redis-server.exe" (
+ECHO "%%REDIS_DIR%redis-server.exe" not exist
 goto :eof
+)
+%XDISK% 
+cd "%REDIS_DIR%"
+redis-server.exe --service-install redis.windows.conf --loglevel verbose
+ECHO.
+goto :eof
+
+
 
 :removeX
 ECHO.Remove Nginx...... 
@@ -134,5 +165,14 @@ goto :eof
 %XDISK% 
 cd "%APACHE_DIR%"
 httpd.exe -k uninstall
+ECHO.
+ECHO.Remove Redis...... 
+IF NOT EXIST "%REDIS_DIR%redis-server.exe" (
+ECHO "%REDIS_DIR%redis-server.exe" not exist
+goto :eof
+)
+%XDISK% 
+cd "%REDIS_DIR%"
+redis-server --service-uninstall
 ECHO.
 goto :eof
