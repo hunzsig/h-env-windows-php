@@ -6,4 +6,4 @@
 > igbinary、redis、lzf、pdo_sqlsrv、sqlsrv、mongodb
 
 #### 建议clone到 **D:/Web**，改动最少
-> git clone git@gitlab.com:h-web/h-web-env-windows.git D:/Web
+> git clone git@gitlab.com:h-web/h-web-env-windows.git D:/Web/h-web-env-windows
