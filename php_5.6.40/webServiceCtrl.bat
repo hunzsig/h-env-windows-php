@@ -16,8 +16,8 @@ color ff
 TITLE ANPR ·þÎñÃæ°å
 
 CLS 
-ECHO.# Apache+Nginx+Php+Redis Service
-ECHO.# by hunzsig 20190404
+ECHO.# by hunzsig 20190411
+ECHO %~0
 
 :MENU
 
