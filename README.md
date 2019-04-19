@@ -14,7 +14,7 @@ opcache( >7.1默认开启)
 ```
 #### 额外拓展包含：
 ```
-igbinary、redis、lzf、pdo_sqlsrv、sqlsrv、mongodb
+igbinary、redis、lzf、pdo_sqlsrv、sqlsrv、mongodb、amqp
 ```
 
 #### 建议clone到 **D:/Web**，改动最少
