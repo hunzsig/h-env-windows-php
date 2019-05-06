@@ -18,4 +18,4 @@ igbinary、redis、lzf、pdo_sqlsrv、sqlsrv、mongodb、amqp
 ```
 
 #### 建议clone到 **D:/Web**，改动最少
-> git clone git@gitlab.com:h-web/h-web-env-windows.git D:/Web/h-web-env-windows
+> git clone git@github.com:hunzsig/h-web-env-windows.git D:/Web/h-web-env-windows
