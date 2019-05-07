@@ -7,7 +7,7 @@ echo ==================begin========================
 cls 
 
 SET XDISK=D:
-SET XPATH=%XDISK%\Web\h-web-env-windows\php_7.0.33
+SET XPATH=%XDISK%\Web\h-web-env-windows\php_7.0
 SET APACHE_DIR=%XPATH%\Apache24\bin\
 SET NGINX_DIR=%XPATH%\nginx-1.15.10\
 SET REDIS_DIR=%XPATH%\Redis-x64-3.2.100\
@@ -16,7 +16,7 @@ color ff
 TITLE ANPR ·þÎñÃæ°å
 
 CLS 
-ECHO.# by hunzsig 20190411
+ECHO.# by hunzsig 20190507
 ECHO %~0
 
 :MENU
