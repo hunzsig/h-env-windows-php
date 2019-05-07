@@ -1,19 +1,19 @@
 ====================================================
 @echo off
-rem Èç³öÏÖÎÊÌâÇë¼ì²éÂ·¾¶»ò³¢ÊÔÒÔ¹ÜÀíÔ±Éí·ÝÔËÐÐ
+rem ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ô¹ï¿½ï¿½ï¿½Ô±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 
 echo ==================begin========================
 
 cls 
 
 SET XDISK=D:
-SET XPATH=%XDISK%\Web\h-web-env-windows\php_5.6.40
+SET XPATH=%XDISK%\Web\h-web-env-windows\php_5.6
 SET APACHE_DIR=%XPATH%\Apache24\bin\
 SET NGINX_DIR=%XPATH%\nginx-1.15.10\
 SET REDIS_DIR=%XPATH%\Redis-x64-3.2.100\
 
 color ff 
-TITLE ANPR ·þÎñÃæ°å
+TITLE ANPR ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 
 CLS 
 ECHO.# by hunzsig 20190411
@@ -21,17 +21,17 @@ ECHO %~0
 
 :MENU
 
-ECHO.----------------------½ø³ÌÁÐ±í----------------------
+ECHO.----------------------ï¿½ï¿½ï¿½ï¿½ï¿½Ð±ï¿½----------------------
 tasklist|findstr /i "nginx.exe"
 tasklist|findstr /i "httpd.exe"
 tasklist|findstr /i "redis-server.exe"
 ECHO.----------------------------------------------------
-ECHO.[1] Æô¶¯·þÎñ
-ECHO.[2] Í£Ö¹·þÎñ
-ECHO.[3] ×¢²á·þÎñ
-ECHO.[9] É¾³ý·þÎñ
-ECHO.[0] ÍË³ö 
-ECHO.ÊäÈë¹¦ÄÜºÅ:
+ECHO.[1] ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+ECHO.[2] Í£Ö¹ï¿½ï¿½ï¿½ï¿½
+ECHO.[3] ×¢ï¿½ï¿½ï¿½ï¿½ï¿½
+ECHO.[9] É¾ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+ECHO.[0] ï¿½Ë³ï¿½ 
+ECHO.ï¿½ï¿½ï¿½ë¹¦ï¿½Üºï¿½:
 
 set /p ID=
 IF "%id%"=="1" GOTO start
