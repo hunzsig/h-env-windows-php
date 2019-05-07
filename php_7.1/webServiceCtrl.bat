@@ -16,7 +16,7 @@ color ff
 TITLE ANPR ·þÎñÃæ°å
 
 CLS 
-ECHO.# by hunzsig 20190411
+ECHO.# by hunzsig 20190507
 ECHO %~0
 
 :MENU
