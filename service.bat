@@ -27,7 +27,7 @@ tasklist|findstr /i "redis-server.exe"
 ECHO.----------------------------------------------------
 ECHO. ‰»ÎPHP∞Ê±æ∫≈:
 set /p VERSION=
-SET APACHE_DIR=%DISK%\Web\h-web-env-windows\php_%version%\Apache24\bin\
+SET APACHE_DIR=%DISK%\Web\h-web-env-windows\php_%version%\bin\
 IF NOT EXIST "%APACHE_DIR%httpd.exe" (
 ECHO "Not support this php version£°"
 GOTO MENU
