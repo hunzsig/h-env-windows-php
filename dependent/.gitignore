@@ -1,8 +1,4 @@
-Redis-*
-nginx-*
-apm-server-*
-elasticsearch-*
-kibana-*
-!elastic-7.0.1.zip
-!nginx-1.15.10.zip
-!Redis-x64-3.2.100.zip
+*
+!*.zip
+!*.zip.*
+!*.exe

@@ -1,6 +1,27 @@
-====================================================
 @echo off
-rem 如出现问题请检查路径或尝试以管理员身份运行
+:: BatchGotAdmin
+:-------------------------------------
+REM --> Check for permissions
+>nul 2>&1 "%SYSTEMROOT%\system32\cacls.exe" "%SYSTEMROOT%\system32\config\system"
+REM --> If error flag set, we do not have admin.
+if '%errorlevel%' NEQ '0' (
+echo Requesting administrative privileges...
+goto UACPrompt
+) else ( goto gotAdmin )
+:UACPrompt
+echo Set UAC = CreateObject^("Shell.Application"^) > "%temp%\getadmin.vbs"
+echo UAC.ShellExecute "%~s0", "", "", "runas", 1 >> "%temp%\getadmin.vbs"
+"%temp%\getadmin.vbs"
+exit /B
+:gotAdmin
+if exist "%temp%\getadmin.vbs" ( del "%temp%\getadmin.vbs" )
+pushd "%CD%"
+CD /D "%~dp0"
+
+
+
+
+
 
 echo ==================begin========================
 
@@ -10,6 +31,10 @@ SET DISK=D:
 SET DEP=%DISK%\Web\h-web-env-windows\dependent
 SET NGINX_DIR=%DEP%\nginx-1.15.10\
 SET REDIS_DIR=%DEP%\Redis-x64-3.2.100\
+SET RABBITMQ_DIR=%DEP%\rabbitmq_server-3.7.15\sbin\
+SET ELASTICSEARCH_DIR=%DEP%\elasticsearch-7.0.1\bin\
+SET KIBANA_DIR=%DEP%\kibana-7.0.1\bin\
+SET APM_DIR=%DEP%\apm-server-7.0.1\
 
 color ff 
 TITLE PHP - 服务面板
@@ -48,6 +73,8 @@ IF "%id%"=="9" GOTO remove
 IF "%id%"=="0" EXIT
 PAUSE 
 
+
+
 :start
 call :startX
 GOTO MENU
@@ -61,125 +88,136 @@ GOTO MENU
 call :removeX
 GOTO MENU
 
+
+
+
+
+
 :startX
-ECHO.Start Nginx...... 
-IF NOT EXIST "%NGINX_DIR%nginx.exe" (
-ECHO "%NGINX_DIR%nginx.exe" not exist
-goto :eof
-)
-%DISK% 
-cd "%NGINX_DIR%" 
-winsw.exe start
-ECHO.
-ECHO.Start Apache...... 
 IF NOT EXIST "%APACHE_DIR%httpd.exe" (
-ECHO "%APACHE_DIR%httpd.exe" not exist
-goto :eof
-)
-%DISK% 
-cd "%APACHE_DIR%" 
+ECHO.[Default][Apache][not exist]
+) ELSE (
+%DISK%
+cd "%APACHE_DIR%"
 httpd.exe -k start
-ECHO.
-ECHO.Start Redis...... 
-IF NOT EXIST "%REDIS_DIR%redis-server.exe" (
-ECHO "%REDIS_DIR%redis-server.exe" not exist
-goto :eof
+ECHO.[Default][PHP][START]
+ECHO.[Default][Apache][START]
 )
-%DISK% 
-cd "%REDIS_DIR%" 
+IF NOT EXIST "%NGINX_DIR%nginx.exe" (
+ECHO.[Dependent][Nginx][hasn't been decompressed yet]
+) ELSE (
+%DISK%
+cd "%NGINX_DIR%"
+winsw.exe start
+ECHO.[Dependent][Nginx][START]
+)
+IF NOT EXIST "%REDIS_DIR%redis-server.exe" (
+ECHO.[Dependent][Redis][hasn't been decompressed yet]
+) ELSE (
+%DISK%
+cd "%REDIS_DIR%"
 redis-server --service-start
-ECHO.
+ECHO.[Dependent][Redis][START]
+)
 goto :eof
+
+
+
+
+
+
 
 :stopX
-ECHO.Stop Nginx...... 
-IF NOT EXIST "%NGINX_DIR%nginx.exe" (
-ECHO "%NGINX_DIR%nginx.exe" not exist
-goto :eof
+IF NOT EXIST "%APACHE_DIR%httpd.exe" (
+ECHO.[Default][Apache][not exist]
+) ELSE (
+%DISK%
+cd "%APACHE_DIR%"
+httpd.exe -k stop
+ECHO.[Default][Apache][STOP]
+ECHO.[Default][PHP][STOP]
 )
-%DISK% 
-cd "%NGINX_DIR%" 
+IF NOT EXIST "%NGINX_DIR%nginx.exe" (
+ECHO.[Dependent][Nginx][hasn't been decompressed yet]
+) ELSE (
+%DISK%
+cd "%NGINX_DIR%"
 winsw.exe stop
 taskkill /F /IM nginx.exe > nul
-ECHO.
-ECHO.Stop Apache...... 
-IF NOT EXIST "%APACHE_DIR%httpd.exe" (
-ECHO "%APACHE_DIR%httpd.exe" not exist
-goto :eof
+ECHO.[Dependent][Nginx][STOP]
 )
-%DISK% 
-cd "%APACHE_DIR%" 
-httpd.exe -k stop
-ECHO.
-ECHO.Stop Redis...... 
 IF NOT EXIST "%REDIS_DIR%redis-server.exe" (
-ECHO "%REDIS_DIR%redis-server.exe" not exist
-goto :eof
-)
-%DISK% 
-cd "%REDIS_DIR%" 
+ECHO.[Dependent][Redis][hasn't been decompressed yet]
+) ELSE (
+%DISK%
+cd "%REDIS_DIR%"
 redis-server --service-stop
-ECHO.
+ECHO.[Dependent][Redis][STOP]
+)
 goto :eof
 
+
+
+
 :registerX
-ECHO.Register Nginx...... 
-IF NOT EXIST "%NGINX_DIR%nginx.exe" (
-ECHO "%NGINX_DIR%nginx.exe" not exist
-goto :eof
-)
-%DISK% 
-cd "%NGINX_DIR%" 
-winsw.exe install
-ECHO.
-ECHO.Register Apache...... 
 IF NOT EXIST "%APACHE_DIR%httpd.exe" (
-ECHO "%APACHE_DIR%httpd.exe" not exist
-goto :eof
-)
-%DISK% 
+ECHO.[Default][Apache][not exist]
+) ELSE (
+%DISK%
 cd "%APACHE_DIR%"
 httpd.exe -k install
-ECHO.
-ECHO.Register Redis...... 
-IF NOT EXIST "%REDIS_DIR%redis-server.exe" (
-ECHO "%%REDIS_DIR%redis-server.exe" not exist
-goto :eof
+ECHO.[Default][PHP][REG]
+ECHO.[Default][Apache][REG]
 )
-%DISK% 
+IF NOT EXIST "%NGINX_DIR%nginx.exe" (
+ECHO.[Dependent][Nginx][hasn't been decompressed yet]
+) ELSE (
+%DISK%
+cd "%NGINX_DIR%"
+winsw.exe install
+ECHO.[Dependent][Nginx][REG]
+)
+IF NOT EXIST "%REDIS_DIR%redis-server.exe" (
+ECHO.[Dependent][Redis][hasn't been decompressed yet]
+) ELSE (
+%DISK%
 cd "%REDIS_DIR%"
 redis-server.exe --service-install redis.windows.conf --loglevel verbose
-ECHO.
+ECHO.[Dependent][Redis][REG]
+)
 goto :eof
+
+
+
+
 
 
 
 :removeX
-ECHO.Remove Nginx...... 
-IF NOT EXIST "%NGINX_DIR%nginx.exe" (
-ECHO "%NGINX_DIR%nginx.exe" not exist
-goto :eof
-)
-%DISK% 
-cd "%NGINX_DIR%"
-winsw.exe uninstall
-ECHO.
-ECHO.Remove Apache...... 
 IF NOT EXIST "%APACHE_DIR%httpd.exe" (
-ECHO "%APACHE_DIR%httpd.exe" not exist
-goto :eof
-)
-%DISK% 
+ECHO.[Default][Apache][not exist]
+) ELSE (
+%DISK%
 cd "%APACHE_DIR%"
 httpd.exe -k uninstall
-ECHO.
-ECHO.Remove Redis...... 
-IF NOT EXIST "%REDIS_DIR%redis-server.exe" (
-ECHO "%REDIS_DIR%redis-server.exe" not exist
-goto :eof
+ECHO.[Default][PHP][DEL]
+ECHO.[Default][Apache][DEL]
 )
-%DISK% 
+IF NOT EXIST "%NGINX_DIR%nginx.exe" (
+ECHO.[Dependent][Nginx][hasn't been decompressed yet]
+) ELSE (
+%DISK%
+cd "%NGINX_DIR%"
+winsw.exe uninstall
+ECHO.[Dependent][Nginx][DEL]
+)
+IF NOT EXIST "%REDIS_DIR%redis-server.exe" (
+ECHO.[Dependent][Redis][hasn't been decompressed yet]
+) ELSE (
+%DISK%
 cd "%REDIS_DIR%"
 redis-server --service-uninstall
-ECHO.
+ECHO.[Dependent][Redis][DEL]
+)
 goto :eof
+
