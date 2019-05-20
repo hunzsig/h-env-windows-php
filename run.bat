@@ -37,7 +37,7 @@ IF "%id%"=="0" EXIT
 PAUSE 
 
 :start
-ECHO.输入PHP版本号:
+ECHO.输入PHP版本号(5.6-7.3):
 set /p VERSION=
 SET APACHE_DIR=%DISK%\Web\h-web-env-windows\php_%version%\bin\
 IF NOT EXIST "%APACHE_DIR%httpd.exe" (
@@ -56,69 +56,47 @@ call :shutdown
 GOTO MENU
 
 :shutdown
-call :shutdownRedis
-call :shutdownNginx
-call :shutdownApache
-goto :eof
-
-:shutdownNginx
-ECHO.Stopping Nginx...... 
+ECHO.Stopping All...... 
 taskkill /F /IM nginx.exe > nul
-ECHO.OK
-ECHO. 
-goto :eof
-
-:startNginx
-ECHO.Start Nginx...... 
-IF NOT EXIST "%NGINX_DIR%nginx.exe" (
-ECHO "%NGINX_DIR%nginx.exe" not exist
-goto :eof
-)
-%XDISK% 
-cd "%NGINX_DIR%" 
-start nginx.exe
-ECHO.OK
-ECHO.
-goto :eof
-
-
-:shutdownApache
-ECHO.Stopping Apache...... 
 taskkill /F /IM httpd.exe > nul
-ECHO.OK
-ECHO. 
+taskkill /F /IM redis-server.exe > nul
+ECHO.[All][stoped]
 goto :eof
+
 
 :startApache
-ECHO.Start Apache...... 
 IF NOT EXIST "%APACHE_DIR%httpd.exe" (
-ECHO "%APACHE_DIR%httpd.exe" not exist
+ECHO "[Default][Apache][not exist]"
 goto :eof
 )
 %XDISK% 
 cd "%APACHE_DIR%" 
 %RunHiddenConsole% httpd.exe
-ECHO.OK
-ECHO.
+ECHO.[Default][PHP][OK]
+ECHO.[Default][Apache][OK]
 goto :eof
 
-:shutdownRedis
-ECHO.Stopping Redis...... 
-taskkill /F /IM redis-server.exe > nul
-ECHO.OK
-ECHO. 
+
+:startNginx
+IF NOT EXIST "%NGINX_DIR%nginx.exe" (
+ECHO "[Dependent][Nginx][hasn't been decompressed yet]"
 goto :eof
+)
+%XDISK% 
+cd "%NGINX_DIR%" 
+start nginx.exe
+ECHO.[Dependent][Nginx][OK]
+goto :eof
+
 
 :startRedis
-ECHO.Start Redis...... 
 IF NOT EXIST "%REDIS_DIR%redis-server.exe" (
-ECHO "%REDIS_DIR%redis-server.exe" not exist
+ECHO "[Dependent][Redis][hasn't been decompressed yet]"
 goto :eof
 )
 %XDISK% 
 cd "%REDIS_DIR%" 
 %RunHiddenConsole% redis-server.exe
-ECHO.OK
-ECHO.
+ECHO.[Dependent][Redis][OK]
 goto :eof
 
