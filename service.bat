@@ -7,16 +7,17 @@ echo ==================begin========================
 cls 
 
 SET XDISK=D:
+SET DPATH=%XDISK%\Web\h-web-env-windows\dependent
 SET XPATH=%XDISK%\Web\h-web-env-windows\php_7.3
 SET APACHE_DIR=%XPATH%\Apache24\bin\
-SET NGINX_DIR=%XPATH%\nginx-1.15.10\
-SET REDIS_DIR=%XPATH%\Redis-x64-3.2.100\
+SET NGINX_DIR=%DPATH%\nginx-1.15.10\
+SET REDIS_DIR=%DPATH%\Redis-x64-3.2.100\
 
 color ff 
 TITLE ANPR ·þÎñÃæ°å
 
 CLS 
-ECHO.# by hunzsig 20190507
+ECHO.# by hunzsig
 ECHO %~0
 
 :MENU

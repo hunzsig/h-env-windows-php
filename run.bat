@@ -6,20 +6,17 @@ echo ==================begin========================
 
 cls 
 
-SET XDISK=D:
-SET XPATH=%XDISK%\Web\h-web-env-windows\php_7.3
-SET RunHiddenConsole=%XPATH%\RunHiddenConsole
-SET APACHE_DIR=%XPATH%\Apache24\bin\
-SET NGINX_DIR=%XPATH%\nginx-1.15.10\
-SET REDIS_DIR=%XPATH%\Redis-x64-3.2.100\
-SET REDIS_DIR=%XPATH%\Redis-x64-3.2.100\
-SET REDIS_DIR=%XPATH%\Redis-x64-3.2.100\
+SET DISK=D:
+SET DEP=%DISK%\Web\h-web-env-windows\dependent
+SET NGINX_DIR=%DEP%\nginx-1.15.10\
+SET REDIS_DIR=%DEP%\Redis-x64-3.2.100\
+SET RunHiddenConsole=%DEP%\RunHiddenConsole
 
 color ff 
-TITLE ANPR 控制面板
+TITLE PHP - 高端控制面板
 
 CLS 
-ECHO.# by hunzsig 20190507
+ECHO.# by hunzsig
 ECHO %~0
 
 :MENU
@@ -29,33 +26,30 @@ tasklist|findstr /i "nginx.exe"
 tasklist|findstr /i "httpd.exe"
 tasklist|findstr /i "redis-server.exe"
 ECHO.----------------------------------------------------
-ECHO.[1] 启动/重启[ANPR模式]
-ECHO.[2] 启动/重启[APR模式]
+ECHO.[1] 启动/重启
 ECHO.[9] 关闭
 ECHO.[0] 退出 
-ECHO.输入功能号:
-
+ECHO.输入操作号:
 set /p ID=
-IF "%id%"=="1" GOTO startANPR
-IF "%id%"=="2" GOTO startAPR
+IF "%id%"=="1" GOTO start
 IF "%id%"=="9" GOTO stop 
 IF "%id%"=="0" EXIT
 PAUSE 
 
-
-
-:startANPR 
+:start
+ECHO.输入PHP版本号:
+set /p VERSION=
+SET APACHE_DIR=%DISK%\Web\h-web-env-windows\php_%version%\Apache24\bin\
+IF NOT EXIST "%APACHE_DIR%httpd.exe" (
+ECHO "Not support this php version！"
+GOTO MENU
+)
 call :shutdown
 call :startApache
 call :startNginx
 call :startRedis
 GOTO MENU
 
-:startAPR 
-call :shutdown
-call :startApache
-call :startRedis
-GOTO MENU
 
 :stop 
 call :shutdown
