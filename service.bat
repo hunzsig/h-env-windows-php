@@ -6,15 +6,13 @@ echo ==================begin========================
 
 cls 
 
-SET XDISK=D:
-SET DPATH=%XDISK%\Web\h-web-env-windows\dependent
-SET XPATH=%XDISK%\Web\h-web-env-windows\php_7.3
-SET APACHE_DIR=%XPATH%\Apache24\bin\
-SET NGINX_DIR=%DPATH%\nginx-1.15.10\
-SET REDIS_DIR=%DPATH%\Redis-x64-3.2.100\
+SET DISK=D:
+SET DEP=%DISK%\Web\h-web-env-windows\dependent
+SET NGINX_DIR=%DEP%\nginx-1.15.10\
+SET REDIS_DIR=%DEP%\Redis-x64-3.2.100\
 
 color ff 
-TITLE ANPR 服务面板
+TITLE PHP - 服务面板
 
 CLS 
 ECHO.# by hunzsig
@@ -26,6 +24,14 @@ ECHO.----------------------进程列表----------------------
 tasklist|findstr /i "nginx.exe"
 tasklist|findstr /i "httpd.exe"
 tasklist|findstr /i "redis-server.exe"
+ECHO.----------------------------------------------------
+ECHO.输入PHP版本号:
+set /p VERSION=
+SET APACHE_DIR=%DISK%\Web\h-web-env-windows\php_%version%\Apache24\bin\
+IF NOT EXIST "%APACHE_DIR%httpd.exe" (
+ECHO "Not support this php version！"
+GOTO MENU
+)
 ECHO.----------------------------------------------------
 ECHO.[1] 启动服务
 ECHO.[2] 停止服务
@@ -61,7 +67,7 @@ IF NOT EXIST "%NGINX_DIR%nginx.exe" (
 ECHO "%NGINX_DIR%nginx.exe" not exist
 goto :eof
 )
-%XDISK% 
+%DISK% 
 cd "%NGINX_DIR%" 
 winsw.exe start
 ECHO.
@@ -70,7 +76,7 @@ IF NOT EXIST "%APACHE_DIR%httpd.exe" (
 ECHO "%APACHE_DIR%httpd.exe" not exist
 goto :eof
 )
-%XDISK% 
+%DISK% 
 cd "%APACHE_DIR%" 
 httpd.exe -k start
 ECHO.
@@ -79,7 +85,7 @@ IF NOT EXIST "%REDIS_DIR%redis-server.exe" (
 ECHO "%REDIS_DIR%redis-server.exe" not exist
 goto :eof
 )
-%XDISK% 
+%DISK% 
 cd "%REDIS_DIR%" 
 redis-server --service-start
 ECHO.
@@ -91,7 +97,7 @@ IF NOT EXIST "%NGINX_DIR%nginx.exe" (
 ECHO "%NGINX_DIR%nginx.exe" not exist
 goto :eof
 )
-%XDISK% 
+%DISK% 
 cd "%NGINX_DIR%" 
 winsw.exe stop
 taskkill /F /IM nginx.exe > nul
@@ -101,7 +107,7 @@ IF NOT EXIST "%APACHE_DIR%httpd.exe" (
 ECHO "%APACHE_DIR%httpd.exe" not exist
 goto :eof
 )
-%XDISK% 
+%DISK% 
 cd "%APACHE_DIR%" 
 httpd.exe -k stop
 ECHO.
@@ -110,7 +116,7 @@ IF NOT EXIST "%REDIS_DIR%redis-server.exe" (
 ECHO "%REDIS_DIR%redis-server.exe" not exist
 goto :eof
 )
-%XDISK% 
+%DISK% 
 cd "%REDIS_DIR%" 
 redis-server --service-stop
 ECHO.
@@ -122,7 +128,7 @@ IF NOT EXIST "%NGINX_DIR%nginx.exe" (
 ECHO "%NGINX_DIR%nginx.exe" not exist
 goto :eof
 )
-%XDISK% 
+%DISK% 
 cd "%NGINX_DIR%" 
 winsw.exe install
 ECHO.
@@ -131,7 +137,7 @@ IF NOT EXIST "%APACHE_DIR%httpd.exe" (
 ECHO "%APACHE_DIR%httpd.exe" not exist
 goto :eof
 )
-%XDISK% 
+%DISK% 
 cd "%APACHE_DIR%"
 httpd.exe -k install
 ECHO.
@@ -140,7 +146,7 @@ IF NOT EXIST "%REDIS_DIR%redis-server.exe" (
 ECHO "%%REDIS_DIR%redis-server.exe" not exist
 goto :eof
 )
-%XDISK% 
+%DISK% 
 cd "%REDIS_DIR%"
 redis-server.exe --service-install redis.windows.conf --loglevel verbose
 ECHO.
@@ -154,7 +160,7 @@ IF NOT EXIST "%NGINX_DIR%nginx.exe" (
 ECHO "%NGINX_DIR%nginx.exe" not exist
 goto :eof
 )
-%XDISK% 
+%DISK% 
 cd "%NGINX_DIR%"
 winsw.exe uninstall
 ECHO.
@@ -163,7 +169,7 @@ IF NOT EXIST "%APACHE_DIR%httpd.exe" (
 ECHO "%APACHE_DIR%httpd.exe" not exist
 goto :eof
 )
-%XDISK% 
+%DISK% 
 cd "%APACHE_DIR%"
 httpd.exe -k uninstall
 ECHO.
@@ -172,7 +178,7 @@ IF NOT EXIST "%REDIS_DIR%redis-server.exe" (
 ECHO "%REDIS_DIR%redis-server.exe" not exist
 goto :eof
 )
-%XDISK% 
+%DISK% 
 cd "%REDIS_DIR%"
 redis-server --service-uninstall
 ECHO.

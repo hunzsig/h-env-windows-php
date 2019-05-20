@@ -13,7 +13,7 @@ SET REDIS_DIR=%DEP%\Redis-x64-3.2.100\
 SET RunHiddenConsole=%DEP%\RunHiddenConsole
 
 color ff 
-TITLE PHP - 高端控制面板
+TITLE PHP - 临时控制面板
 
 CLS 
 ECHO.# by hunzsig
