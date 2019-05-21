@@ -159,7 +159,7 @@ goto :eof
 )
 %DISK%
 cd "%RABBITMQ_DIR%"
-rabbitmq-service start
+call rabbitmq-service.bat start
 ECHO.[Dependent][Rabbitmq][START]
 goto :eof
 
@@ -170,7 +170,7 @@ goto :eof
 )
 %DISK%
 cd "%ELASTICSEARCH_DIR%"
-elasticsearch-service start
+call elasticsearch-service.bat start
 ECHO.[Dependent][Elasticsearch][START]
 goto :eof
 
@@ -236,7 +236,7 @@ goto :eof
 )
 %DISK%
 cd "%RABBITMQ_DIR%"
-rabbitmq-service stop
+call rabbitmq-service.bat stop
 ECHO.[Dependent][Rabbitmq][STOP]
 goto :eof
 
@@ -247,7 +247,7 @@ goto :eof
 )
 %DISK%
 cd "%ELASTICSEARCH_DIR%"
-elasticsearch-service stop
+call elasticsearch-service.bat stop
 ECHO.[Dependent][Elasticsearch][STOP]
 goto :eof
 
@@ -309,7 +309,7 @@ goto :eof
 )
 %DISK%
 cd "%RABBITMQ_DIR%"
-rabbitmq-service install
+call rabbitmq-service.bat install
 ECHO.[Dependent][Rabbitmq][REG]
 goto :eof
 
@@ -320,7 +320,7 @@ goto :eof
 )
 %DISK%
 cd "%ELASTICSEARCH_DIR%"
-elasticsearch-service install
+call elasticsearch-service.bat install
 ECHO.[Dependent][Elasticsearch][REG]
 goto :eof
 
@@ -392,9 +392,10 @@ goto :eof
 )
 %DISK%
 cd "%RABBITMQ_DIR%"
-rabbitmq-service remove
+call rabbitmq-service.bat remove
 ECHO.[Dependent][Rabbitmq][DEL]
 goto :eof
+
 
 :removeElasticsearch
 IF NOT EXIST "%ELASTICSEARCH_DIR%elasticsearch-service.bat" (
@@ -403,9 +404,10 @@ goto :eof
 )
 %DISK%
 cd "%ELASTICSEARCH_DIR%"
-elasticsearch-service remove
+call elasticsearch-service.bat remove
 ECHO.[Dependent][Elasticsearch][DEL]
-goto :eof
+goto :eo
+
 
 :removeKibana
 IF NOT EXIST "%KIBANA_DIR%kibana.bat" (
