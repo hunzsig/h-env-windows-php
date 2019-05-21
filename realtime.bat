@@ -77,10 +77,10 @@ call :shutdown
 call :startApache
 call :startNginx
 call :startRedis
+call :startRabbitmq
 call :startElasticsearch
 call :startKibana
 call :startApm
-call :startRabbitmq
 GOTO MENU
 
 

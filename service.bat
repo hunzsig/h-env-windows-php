@@ -20,8 +20,6 @@ CD /D "%~dp0"
 
 
 
-
-
 echo ==================begin========================
 
 cls 
@@ -131,6 +129,7 @@ httpd.exe -k start
 ECHO.[Default][PHP][START]
 ECHO.[Default][Apache][START]
 goto :eof
+
 :startNginx
 IF NOT EXIST "%NGINX_DIR%nginx.exe" (
 ECHO.[Dependent][Nginx][hasn't been decompressed yet]
@@ -141,6 +140,7 @@ cd "%NGINX_DIR%"
 winsw.exe start
 ECHO.[Dependent][Nginx][START]
 goto :eof
+
 :startRedis
 IF NOT EXIST "%REDIS_DIR%redis-server.exe" (
 ECHO.[Dependent][Redis][hasn't been decompressed yet]
@@ -151,6 +151,7 @@ cd "%REDIS_DIR%"
 redis-server --service-start
 ECHO.[Dependent][Redis][START]
 goto :eof
+
 :startRabbitmq
 IF NOT EXIST "%RABBITMQ_DIR%rabbitmq-service.bat" (
 ECHO.[Dependent][Rabbitmq][hasn't been decompressed yet]
@@ -158,9 +159,10 @@ goto :eof
 )
 %DISK%
 cd "%RABBITMQ_DIR%"
-rabbitmq-service.bat start
+rabbitmq-service start
 ECHO.[Dependent][Rabbitmq][START]
 goto :eof
+
 :startElasticsearch
 IF NOT EXIST "%ELASTICSEARCH_DIR%elasticsearch-service.bat" (
 ECHO.[Dependent][Elasticsearch][hasn't been decompressed yet]
@@ -168,9 +170,10 @@ goto :eof
 )
 %DISK%
 cd "%ELASTICSEARCH_DIR%"
-elasticsearch-service.bat start
+elasticsearch-service start
 ECHO.[Dependent][Elasticsearch][START]
 goto :eof
+
 :startKibana
 IF NOT EXIST "%KIBANA_DIR%kibana.bat" (
 ECHO.[Dependent][Kibana][hasn't been decompressed yet]
@@ -181,6 +184,7 @@ cd "%KIBANA_DIR%"
 winsw.exe start
 ECHO.[Dependent][Kibana][START]
 goto :eof
+
 :startApm
 net start "apm-server"
 goto :eof
@@ -201,6 +205,7 @@ httpd.exe -k stop
 ECHO.[Default][Apache][STOP]
 ECHO.[Default][PHP][STOP]
 goto :eof
+
 :stopNginx
 IF NOT EXIST "%NGINX_DIR%nginx.exe" (
 ECHO.[Dependent][Nginx][hasn't been decompressed yet]
@@ -212,6 +217,7 @@ winsw.exe stop
 taskkill /F /IM nginx.exe > nul
 ECHO.[Dependent][Nginx][STOP]
 goto :eof
+
 :stopRedis
 IF NOT EXIST "%REDIS_DIR%redis-server.exe" (
 ECHO.[Dependent][Redis][hasn't been decompressed yet]
@@ -222,6 +228,7 @@ cd "%REDIS_DIR%"
 redis-server --service-stop
 ECHO.[Dependent][Redis][STOP]
 goto :eof
+
 :stopRabbitmq
 IF NOT EXIST "%RABBITMQ_DIR%rabbitmq-service.bat" (
 ECHO.[Dependent][Rabbitmq][hasn't been decompressed yet]
@@ -229,9 +236,10 @@ goto :eof
 )
 %DISK%
 cd "%RABBITMQ_DIR%"
-rabbitmq-service.bat stop
+rabbitmq-service stop
 ECHO.[Dependent][Rabbitmq][STOP]
 goto :eof
+
 :stopElasticsearch
 IF NOT EXIST "%ELASTICSEARCH_DIR%elasticsearch-service.bat" (
 ECHO.[Dependent][Elasticsearch][hasn't been decompressed yet]
@@ -239,9 +247,10 @@ goto :eof
 )
 %DISK%
 cd "%ELASTICSEARCH_DIR%"
-elasticsearch-service.bat stop
+elasticsearch-service stop
 ECHO.[Dependent][Elasticsearch][STOP]
 goto :eof
+
 :stopKibana
 IF NOT EXIST "%KIBANA_DIR%kibana.bat" (
 ECHO.[Dependent][Kibana][hasn't been decompressed yet]
@@ -252,6 +261,7 @@ cd "%KIBANA_DIR%"
 winsw.exe stop
 ECHO.[Dependent][Kibana][STOP]
 goto :eof
+
 :stopApm
 net stop "apm-server"
 goto :eof
@@ -269,6 +279,7 @@ httpd.exe -k install
 ECHO.[Default][PHP][REG]
 ECHO.[Default][Apache][REG]
 goto :eof
+
 :registerNginx
 IF NOT EXIST "%NGINX_DIR%nginx.exe" (
 ECHO.[Dependent][Nginx][hasn't been decompressed yet]
@@ -279,6 +290,7 @@ cd "%NGINX_DIR%"
 winsw.exe install
 ECHO.[Dependent][Nginx][REG]
 goto :eof
+
 :registerRedis
 IF NOT EXIST "%REDIS_DIR%redis-server.exe" (
 ECHO.[Dependent][Redis][hasn't been decompressed yet]
@@ -289,6 +301,7 @@ cd "%REDIS_DIR%"
 redis-server.exe --service-install redis.windows.conf --loglevel verbose
 ECHO.[Dependent][Redis][REG]
 goto :eof
+
 :registerRabbitmq
 IF NOT EXIST "%RABBITMQ_DIR%rabbitmq-service.bat" (
 ECHO.[Dependent][Rabbitmq][hasn't been decompressed yet]
@@ -296,9 +309,10 @@ goto :eof
 )
 %DISK%
 cd "%RABBITMQ_DIR%"
-rabbitmq-service.bat install
+rabbitmq-service install
 ECHO.[Dependent][Rabbitmq][REG]
 goto :eof
+
 :registerElasticsearch
 IF NOT EXIST "%ELASTICSEARCH_DIR%elasticsearch-service.bat" (
 ECHO.[Dependent][Elasticsearch][hasn't been decompressed yet]
@@ -306,9 +320,10 @@ goto :eof
 )
 %DISK%
 cd "%ELASTICSEARCH_DIR%"
-elasticsearch-service.bat install
+elasticsearch-service install
 ECHO.[Dependent][Elasticsearch][REG]
 goto :eof
+
 :registerKibana
 IF NOT EXIST "%KIBANA_DIR%kibana.bat" (
 ECHO.[Dependent][Kibana][hasn't been decompressed yet]
@@ -319,6 +334,7 @@ cd "%KIBANA_DIR%"
 winsw.exe install
 ECHO.[Dependent][Kibana][REG]
 goto :eof
+
 :registerApm
 IF NOT EXIST "%APM_DIR%install-service-apm-server.ps1" (
 ECHO.[Dependent][APM][hasn't been decompressed yet]
@@ -376,10 +392,9 @@ goto :eof
 )
 %DISK%
 cd "%RABBITMQ_DIR%"
-rabbitmq-service.bat remove
+rabbitmq-service remove
 ECHO.[Dependent][Rabbitmq][DEL]
 goto :eof
-
 
 :removeElasticsearch
 IF NOT EXIST "%ELASTICSEARCH_DIR%elasticsearch-service.bat" (
@@ -388,10 +403,9 @@ goto :eof
 )
 %DISK%
 cd "%ELASTICSEARCH_DIR%"
-elasticsearch-service.bat remove
+elasticsearch-service remove
 ECHO.[Dependent][Elasticsearch][DEL]
 goto :eof
-
 
 :removeKibana
 IF NOT EXIST "%KIBANA_DIR%kibana.bat" (
