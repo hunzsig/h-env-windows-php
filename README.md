@@ -31,8 +31,12 @@ igbinary、redis、lzf、pdo_sqlsrv、sqlsrv、mongodb、amqp
 ```
 #### 各类数据库请自行安装使用，如：
 ```
-mysql、pgsql、mongo等
+mysql、postgresql、mongo等
 ```
+ * [mysql5.7](https://dev.mysql.com/downloads/windows/installer/5.7.html)
+ * [mysql8.0](https://dev.mysql.com/downloads/windows/installer/8.0.html)
+ * [postgresql](https://www.enterprisedb.com/downloads/postgres-postgresql-downloads)
+ * [mongo](https://www.mongodb.com/download-center/community)
 
 #### 建议clone到 **D:/Web**，改动最少
 > git clone git@github.com:hunzsig/h-web-env-windows.git D:\Web\h-web-env-windows

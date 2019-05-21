@@ -22,7 +22,6 @@ CD /D "%~dp0"
 
 
 
-
 echo ==================begin========================
 
 cls 
@@ -49,6 +48,10 @@ ECHO.----------------------进程列表----------------------
 tasklist|findstr /i "nginx.exe"
 tasklist|findstr /i "httpd.exe"
 tasklist|findstr /i "redis-server.exe"
+tasklist|findstr /i "erl.exe"
+tasklist|findstr /i "java.exe"
+tasklist|findstr /i "node.exe"
+tasklist|findstr /i "apm-server.exe"
 ECHO.----------------------------------------------------
 ECHO.输入PHP版本号:
 set /p VERSION=
@@ -119,6 +122,14 @@ cd "%REDIS_DIR%"
 redis-server --service-start
 ECHO.[Dependent][Redis][START]
 )
+IF NOT EXIST "%RABBITMQ_DIR%rabbitmq-service.bat" (
+ECHO.[Dependent][Rabbitmq][hasn't been decompressed yet]
+) ELSE (
+%DISK%
+cd "%RABBITMQ_DIR%"
+rabbitmq-service.bat start
+ECHO.[Dependent][Rabbitmq][DEL]
+)
 goto :eof
 
 
@@ -154,6 +165,14 @@ cd "%REDIS_DIR%"
 redis-server --service-stop
 ECHO.[Dependent][Redis][STOP]
 )
+IF NOT EXIST "%RABBITMQ_DIR%rabbitmq-service.bat" (
+ECHO.[Dependent][Rabbitmq][hasn't been decompressed yet]
+) ELSE (
+%DISK%
+cd "%RABBITMQ_DIR%"
+rabbitmq-service.bat stop
+ECHO.[Dependent][Rabbitmq][DEL]
+)
 goto :eof
 
 
@@ -184,6 +203,14 @@ ECHO.[Dependent][Redis][hasn't been decompressed yet]
 cd "%REDIS_DIR%"
 redis-server.exe --service-install redis.windows.conf --loglevel verbose
 ECHO.[Dependent][Redis][REG]
+)
+IF NOT EXIST "%RABBITMQ_DIR%rabbitmq-service.bat" (
+ECHO.[Dependent][Rabbitmq][hasn't been decompressed yet]
+) ELSE (
+%DISK%
+cd "%RABBITMQ_DIR%"
+rabbitmq-service.bat install
+ECHO.[Dependent][Rabbitmq][DEL]
 )
 goto :eof
 
@@ -218,6 +245,14 @@ ECHO.[Dependent][Redis][hasn't been decompressed yet]
 cd "%REDIS_DIR%"
 redis-server --service-uninstall
 ECHO.[Dependent][Redis][DEL]
+)
+IF NOT EXIST "%RABBITMQ_DIR%rabbitmq-service.bat" (
+ECHO.[Dependent][Rabbitmq][hasn't been decompressed yet]
+) ELSE (
+%DISK%
+cd "%RABBITMQ_DIR%"
+rabbitmq-service.bat remove
+ECHO.[Dependent][Rabbitmq][DEL]
 )
 goto :eof
 

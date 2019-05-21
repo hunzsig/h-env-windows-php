@@ -50,6 +50,7 @@ ECHO.----------------------进程列表----------------------
 tasklist|findstr /i "httpd.exe"
 tasklist|findstr /i "nginx.exe"
 tasklist|findstr /i "redis-server.exe"
+tasklist|findstr /i "erl.exe"
 tasklist|findstr /i "java.exe"
 tasklist|findstr /i "node.exe"
 tasklist|findstr /i "apm-server.exe"
