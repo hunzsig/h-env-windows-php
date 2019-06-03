@@ -26,8 +26,25 @@ pdo_mysql、pdo_odbc、pdo_pgsql、pdo_sqlite
 opcache( >7.1默认开启)
 ```
 #### 额外拓展包含：
+> 5.6
 ```
-igbinary、redis、lzf、pdo_sqlsrv、sqlsrv、mongodb、amqp
+igbinary、redis、memcache、lzf、pdo_sqlsrv、sqlsrv、mongo、mongodb、amqp
+```
+> 7.0
+```
+igbinary、redis、memcache、lzf、pdo_sqlsrv、sqlsrv、mongodb、amqp
+```
+> 7.1
+```
+igbinary、redis、memcache、lzf、pdo_sqlsrv、sqlsrv、mongodb、amqp
+```
+> 7.2
+```
+igbinary、redis、memcache、lzf、pdo_sqlsrv、sqlsrv、mongodb、amqp
+```
+> 7.3
+```
+igbinary、redis、memcache、lzf、pdo_sqlsrv、sqlsrv、mongodb、amqp
 ```
 #### 各类数据库请自行安装使用，如：
 ```
