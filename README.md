@@ -19,7 +19,7 @@ nginx、redis、elastic、rabbitmq
 ```
 #### 开启拓展包含：
 ```
-bz2、gd2、mbstring、xmlrpc
+bz2、gd2、mbstring、xmlrpc、fileinfo
 curl、imap、openssl、soap、sockets
 odbc、mysqli、pgsql
 pdo_mysql、pdo_odbc、pdo_pgsql、pdo_sqlite
