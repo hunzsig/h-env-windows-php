@@ -67,14 +67,17 @@ ECHO.[0] 退出
 ECHO.输入功能号:
 
 set /p ID=
-IF "%id%"=="1" GOTO start
-IF "%id%"=="2" GOTO stop
-IF "%id%"=="3" GOTO register
-IF "%id%"=="9" GOTO remove 
-IF "%id%"=="0" EXIT
+IF "%id%"=="1" ( GOTO start ) ^
+ELSE IF "%id%"=="2" ( GOTO stop ) ^
+ELSE IF "%id%"=="3" ( GOTO register ) ^
+ELSE IF "%id%"=="9" ( GOTO remove ) ^
+ELSE IF "%id%"=="0" ( EXIT ) ^
+ELSE ( GOTO error )
 PAUSE 
 
-
+:error
+ECHO.Not support this opreation！
+GOTO MENU
 
 :start
 call :startApache
