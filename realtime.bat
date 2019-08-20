@@ -60,10 +60,15 @@ ECHO.[9] 关闭
 ECHO.[0] 退出 
 ECHO.输入操作号:
 set /p ID=
-IF "%id%"=="1" GOTO start
-IF "%id%"=="9" GOTO stop 
-IF "%id%"=="0" EXIT
-PAUSE 
+IF "%id%"=="1" ( GOTO start ) ^
+ELSE IF "%id%"=="9" ( GOTO stop ) ^
+ELSE IF "%id%"=="0" ( EXIT ) ^
+ELSE ( GOTO error )
+PAUSE
+
+:error
+ECHO.Not support this opreation！
+GOTO MENU
 
 :start
 ECHO.输入PHP版本号(5.6-7.3):
