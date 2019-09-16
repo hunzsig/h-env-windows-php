@@ -24,8 +24,10 @@ echo ==================begin========================
 
 cls 
 
-SET DISK=D:
-SET DEP=%DISK%\Web\h-web-env-windows\dependent
+SET DISK=C:
+SET TOP=%DISK%\env\h-web-env-windows
+SET DEP=%TOP%\dependent
+
 SET NGINX_DIR=%DEP%\nginx-1.15.10\
 SET REDIS_DIR=%DEP%\Redis-x64-3.2.100\
 SET RABBITMQ_DIR=%DEP%\rabbitmq_server-3.7.15\sbin\
@@ -53,7 +55,7 @@ tasklist|findstr /i "apm-server.exe"
 ECHO.----------------------------------------------------
 ECHO. ‰»ÎPHP∞Ê±æ∫≈:
 set /p VERSION=
-SET APACHE_DIR=%DISK%\Web\h-web-env-windows\php_%version%\bin\
+SET APACHE_DIR=%TOP%\php_%version%\bin\
 IF NOT EXIST "%APACHE_DIR%httpd.exe" (
 ECHO "Not support this php version£°"
 GOTO MENU

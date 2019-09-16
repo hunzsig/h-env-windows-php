@@ -26,8 +26,9 @@ echo ==================begin========================
 
 cls 
 
-SET DISK=D:
-SET DEP=%DISK%\Web\h-web-env-windows\dependent
+SET DISK=C:
+SET TOP=%DISK%\env\h-web-env-windows
+SET DEP=%TOP%\dependent
 
 SET RunHiddenConsole=%DEP%\RunHiddenConsole
 SET NGINX_DIR=%DEP%\nginx-1.15.10\
@@ -73,7 +74,7 @@ GOTO MENU
 :start
 ECHO. ‰»ÎPHP∞Ê±æ∫≈(5.6-7.3):
 set /p VERSION=
-SET APACHE_DIR=%DISK%\Web\h-web-env-windows\php_%version%\bin\
+SET APACHE_DIR=%TOP%\php_%version%\bin\
 IF NOT EXIST "%APACHE_DIR%httpd.exe" (
 ECHO.Not support this php version£°
 GOTO MENU
