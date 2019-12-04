@@ -2,7 +2,7 @@
 > 至于 linux 为什么不配，那是因为 linux 用命令安装本身已经极其方便（推荐CentOS）
 > 另有 docker 版本全平台兼容环境 [h-docker-env](https://github.com/hunzsig/h-docker-env)
 
-### 使用方式（自带admin权限询问）
+### 使用方式（自带admin权限询问，任意目录皆可）
 ```
 双击(double click) realtime.bat 运行一次性控制
 双击(double click) service.bat 进行系统服务级控制
@@ -65,5 +65,3 @@ mysql、postgresql、mongo等
  * [postgresql](https://www.enterprisedb.com/downloads/postgres-postgresql-downloads)
  * [mongo](https://www.mongodb.com/download-center/community)
 
-#### clone到 **C:\env\h-web-env-windows**，改动最少
-> git clone git@github.com:hunzsig/h-web-env-windows.git C:\env\h-web-env-windows
