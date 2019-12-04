@@ -20,12 +20,9 @@ CD /D "%~dp0"
 
 
 
-echo ==================begin========================
-
 cls 
 
-SET DISK=C:
-SET TOP=%DISK%\env\h-web-env-windows
+SET TOP=%cd%
 SET DEP=%TOP%\dependent
 
 SET NGINX_DIR=%DEP%\nginx-1.15.10\
