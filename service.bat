@@ -51,7 +51,7 @@ tasklist|findstr /i "java.exe"
 tasklist|findstr /i "node.exe"
 tasklist|findstr /i "apm-server.exe"
 ECHO.----------------------------------------------------
-ECHO.输入PHP版本号(5.6-7.3 or latest):
+ECHO.输入PHP版本号(5.6-7.4 or latest):
 set /p VERSION=
 cd "%DEP%"
 %PHPINI_EXE% %version%

@@ -10,7 +10,7 @@
 
 ### 默认库
 ```
-apache、php（5.6-7.3，最新版的php会包含一个没有xdebug的版本，用于swoole）
+apache、php（5.6-7.3，latest为7.3，是一个没有内置xdebug的版本）
 ```
 ### 可选依赖服务
 #### 拓展服务都压缩放置于dependent，需要某个时，直接压缩到目录即可
@@ -52,7 +52,12 @@ xdebug
 igbinary、redis、memcache、lzf、pdo_sqlsrv、sqlsrv、mongodb、amqp、
 xdebug
 ```
-> latest (latest version without xdebug)
+> 7.4
+```
+igbinary、redis、memcache、lzf、pdo_sqlsrv、sqlsrv、mongodb、
+xdebug
+```
+> latest (7.3 without xdebug)
 ```
 igbinary、redis、memcache、lzf、pdo_sqlsrv、sqlsrv、mongodb、amqp
 ```
