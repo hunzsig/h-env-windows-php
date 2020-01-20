@@ -31,7 +31,7 @@ SET RABBITMQ_DIR=%DEP%\rabbitmq_server-3.7.15\sbin\
 SET ELASTICSEARCH_DIR=%DEP%\elasticsearch-7.0.1\bin\
 SET KIBANA_DIR=%DEP%\kibana-7.0.1\bin\
 SET APM_DIR=%DEP%\apm-server-7.0.1\
-SET PHPINI_EXE=%DEP%\php.ini.exe
+SET PHPINI_EXE=%DEP%\dependent.exe
 
 color ff 
 TITLE PHP - 临时控制面板
@@ -69,6 +69,7 @@ GOTO MENU
 :start
 ECHO.输入PHP版本号(5.6-7.3 or latest):
 set /p VERSION=
+cd "%DEP%"
 %PHPINI_EXE% %version%
 SET APACHE_DIR=%TOP%\php_%version%\bin\
 IF NOT EXIST "%APACHE_DIR%httpd.exe" (
