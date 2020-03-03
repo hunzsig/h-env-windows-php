@@ -29,37 +29,31 @@ opcache( >7.1默认开启)
 #### 额外拓展包含：
 > 5.6.40
 ```
-igbinary、redis、memcache、lzf、pdo_sqlsrv、sqlsrv、mongodb、amqp、
-xdebug、mongo
+igbinary、redis、memcache、lzf、pdo_sqlsrv、sqlsrv、mongodb、amqp、xdebug、mongo
 ```
 > 7.0.33
 ```
-igbinary、redis、memcache、lzf、pdo_sqlsrv、sqlsrv、mongodb、amqp、
-xdebug
+igbinary、redis、memcache、lzf、pdo_sqlsrv、sqlsrv、mongodb、amqp、rdkafka、xdebug
 ```
 > 7.1.33
 ```
-igbinary、redis、memcache、lzf、pdo_sqlsrv、sqlsrv、mongodb、amqp、
-xdebug
+igbinary、redis、memcache、lzf、pdo_sqlsrv、sqlsrv、mongodb、amqp、rdkafka、xdebug
 ```
 > 7.2.28
 ```
-igbinary、redis、memcache、lzf、pdo_sqlsrv、sqlsrv、mongodb、amqp、
-xdebug
+igbinary、redis、memcache、lzf、pdo_sqlsrv、sqlsrv、mongodb、amqp、rdkafka、xdebug
 ```
 > 7.3.15
 ```
-igbinary、redis、memcache、lzf、pdo_sqlsrv、sqlsrv、mongodb、amqp、
-xdebug
+igbinary、redis、memcache、lzf、pdo_sqlsrv、sqlsrv、mongodb、amqp、rdkafka、xdebug
 ```
 > 7.4.3
 ```
-igbinary、redis、memcache、lzf、pdo_sqlsrv、sqlsrv、mongodb、
-xdebug
+igbinary、redis、memcache、lzf、pdo_sqlsrv、sqlsrv、mongodb、rdkafka、xdebug
 ```
 > latest (7.3 without xdebug)
 ```
-igbinary、redis、memcache、lzf、pdo_sqlsrv、sqlsrv、mongodb、amqp
+igbinary、redis、memcache、lzf、pdo_sqlsrv、sqlsrv、mongodb、amqp、rdkafka
 ```
 #### 各类数据库请自行安装使用，如：
 ```
