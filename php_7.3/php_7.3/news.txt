@@ -1,11 +1,114 @@
 PHP                                                                        NEWS
 |||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+16 Apr 2020, PHP 7.3.17
+
+- Core:
+  . Fixed bug #79364 (When copy empty array, next key is unspecified). (cmb)
+  . Fixed bug #78210 (Invalid pointer address). (cmb, Nikita)
+
+- CURL:
+  . Fixed bug #79199 (curl_copy_handle() memory leak). (cmb)
+
+- Date:
+  . Fixed bug #79396 (DateTime hour incorrect during DST jump forward). (Nate
+    Brunette)
+
+- Iconv:
+  . Fixed bug #79200 (Some iconv functions cut Windows-1258). (cmb)
+
+- OPcache:
+  . Fixed bug #79412 (Opcache chokes and uses 100% CPU on specific script).
+    (Dmitry)
+
+- Session:
+  . Fixed bug #79413 (session_create_id() fails for active sessions). (cmb)
+
+- Shmop:
+  . Fixed bug #79427 (Integer Overflow in shmop_open()). (cmb)
+
+- SimpleXML:
+  . Fixed bug #61597 (SXE properties may lack attributes and content). (cmb)
+
+- Spl:
+  . Fixed bug #75673 (SplStack::unserialize() behavior). (cmb)
+  . Fixed bug #79393 (Null coalescing operator failing with SplFixedArray).
+    (cmb)
+
+- Standard:
+  . Fixed bug #79330 (shell_exec() silently truncates after a null byte). (stas)
+  . Fixed bug #79465 (OOB Read in urldecode()). (stas)
+  . Fixed bug #79410 (system() swallows last chunk if it is exactly 4095 bytes
+    without newline). (Christian Schneider)
+
+- Zip:
+  . Fixed Bug #79296 (ZipArchive::open fails on empty file). (Remi)
+  . Fixed bug #79424 (php_zip_glob uses gl_pathc after call to globfree).
+    (Max Rees)
+
+19 Mar 2020, PHP 7.3.16
+
+- Core:
+  . Fixed bug #63206 (restore_error_handler does not restore previous errors
+    mask). (Mark Plomer)
+
+- COM:
+  . Fixed bug #66322 (COMPersistHelper::SaveToFile can save to wrong location).
+    (cmb)
+  . Fixed bug #79242 (COM error constants don't match com_exception codes on
+    x86). (cmb)
+  . Fixed bug #79248 (Traversing empty VT_ARRAY throws com_exception). (cmb)
+  . Fixed bug #79299 (com_print_typeinfo prints duplicate variables). (Litiano
+    Moura)
+  . Fixed bug #79332 (php_istreams are never freed). (cmb)
+  . Fixed bug #79333 (com_print_typeinfo() leaks memory). (cmb)
+
+- DOM:
+  . Fixed bug #77569: (Write Access Violation in DomImplementation). (Nikita,
+    cmb)
+  . Fixed bug #79271 (DOMDocumentType::$childNodes is NULL). (cmb)
+
+- Enchant:
+  . Fixed bug #79311 (enchant_dict_suggest() fails on big endian architecture).
+    (cmb)
+
+- EXIF:
+  . Fixed bug #79282 (Use-of-uninitialized-value in exif). (CVE-2020-7064)
+    (Nikita)
+
+- MBstring:
+  . Fixed bug #79371 (mb_strtolower (UTF-32LE): stack-buffer-overflow at 
+    php_unicode_tolower_full). (CVE-2020-7065) (cmb)
+
+- MySQLi:
+  . Fixed bug #64032 (mysqli reports different client_version). (cmb)
+
+- PCRE:
+  . Fixed bug #79188 (Memory corruption in preg_replace/preg_replace_callback
+    and unicode). (Nikita)
+
+- PDO_ODBC:
+  . Fixed bug #79038 (PDOStatement::nextRowset() leaks column values). (cmb)
+
+- Reflection:
+  . Fixed bug #79062 (Property with heredoc default value returns false for
+    getDocComment). (Nikita)
+
+- SQLite3:
+  . Fixed bug #79294 (::columnType() may fail after SQLite3Stmt::reset()). (cmb)
+
+- Standard:
+  . Fixed bug #79329 (get_headers() silently truncates after a null byte). 
+    (CVE-2020-7066) (cmb)
+  . Fixed bug #79254 (getenv() w/o arguments not showing changes). (cmb)
+  . Fixed bug #79265 (Improper injection of Host header when using fopen for
+    http requests). (Miguel Xavier Penha Neto)
+
 20 Feb 2020, PHP 7.3.15
 
 - Core:
   . Fixed bug #71876 (Memory corruption htmlspecialchars(): charset `*' not
     supported). (Nikita)
-  . Fixed bug ##79146 (cscript can fail to run on some systems). (clarodeus)
+  . Fixed bug #79146 (cscript can fail to run on some systems). (clarodeus)
   . Fixed bug #78323 (Code 0 is returned on invalid options). (Ivan Mikheykin)
   . Fixed bug #76047 (Use-after-free when accessing already destructed
     backtrace arguments). (Nikita)
@@ -14,7 +117,7 @@ PHP                                                                        NEWS
   . Fixed bug #79078 (Hypothetical use-after-free in curl_multi_add_handle()).
     (cmb)
 
- -Intl:
+- Intl:
   . Fixed bug #79212 (NumberFormatter::format() may detect wrong type). (cmb)
 
 - Libxml:
@@ -35,7 +138,7 @@ PHP                                                                        NEWS
   . Fixed bug #79082 (Files added to tar with Phar::buildFromIterator have
     all-access permissions). (CVE-2020-7063) (stas)
   . Fixed bug #79171 (heap-buffer-overflow in phar_extract_file).
-    (CVE-	2020-7061) (cmb)
+    (CVE-2020-7061) (cmb)
   . Fixed bug #76584 (PharFileInfo::decompress not working). (cmb)
 
 - Reflection:
