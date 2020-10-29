@@ -10,7 +10,7 @@
 
 ### 默认库
 ```
-apache、php（5.6-7.4，latest为7.4，是一个没有内置xdebug的版本）
+apache、php（5.6-7.4，latest为7.4且无xdebug的版本）
 ```
 ### 可选依赖服务
 #### 拓展服务都压缩放置于dependent，需要某个时，直接压缩到目录即可
@@ -43,15 +43,15 @@ igbinary、redis、memcache、lzf、pdo_sqlsrv、sqlsrv、mongodb、amqp、rdkaf
 ```
 igbinary、redis、memcache、lzf、pdo_sqlsrv、sqlsrv、mongodb、amqp、rdkafka、xdebug
 ```
-> 7.3.17
+> 7.3.24
 ```
 igbinary、redis、memcache、lzf、pdo_sqlsrv、sqlsrv、mongodb、amqp、rdkafka、xdebug
 ```
-> 7.4.5
+> 7.4.12
 ```
 igbinary、redis、memcache、lzf、pdo_sqlsrv、sqlsrv、mongodb、amqp、rdkafka、xdebug
 ```
-> latest (7.4 without xdebug)
+> latest (7.4.12 without xdebug)
 ```
 igbinary、redis、memcache、lzf、pdo_sqlsrv、sqlsrv、mongodb、amqp、rdkafka
 ```
