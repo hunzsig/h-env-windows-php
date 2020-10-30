@@ -1,5 +1,39 @@
 PHP                                                                        NEWS
 |||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+01 Oct 2020, PHP 7.2.34
+
+- Core:
+  . Fixed bug #79699 (PHP parses encoded cookie names so malicious `__Host-`
+    cookies can be sent). (CVE-2020-7070) (Stas)
+
+- OpenSSL:
+  . Fixed bug #79601 (Wrong ciphertext/tag in AES-CCM encryption for a 12
+    bytes IV). (CVE-2020-7069) (Jakub Zelenka)
+
+06 Aug 2020, PHP 7.2.33
+
+- Core:
+  . Fixed bug #79877 (getimagesize function silently truncates after a null 
+    byte) (cmb)
+
+- Phar:
+  . Fixed bug #79797 (Use of freed hash key in the phar_parse_zipfile
+    function). (CVE-2020-7068) (cmb)
+
+09 Jul 2020, PHP 7.2.32
+
+- Core:
+  . No source changes to this release.
+    Vesion number added for reproduction of Windows builds. (cmb)
+
+14 May 2020, PHP 7.2.31
+
+- Core:
+  . Fixed bug #78875 (Long filenames cause OOM and temp files are not cleaned). 
+    (CVE-2019-11048) (cmb)
+  . Fixed bug #78876 (Long variables in multipart/form-data cause OOM and temp 
+    files are not cleaned). (CVE-2019-11048) (cmb)
+
 16 Apr 2020, PHP 7.2.30
 
 - Standard:

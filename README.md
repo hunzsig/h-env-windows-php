@@ -39,7 +39,7 @@ igbinary、redis、memcache、lzf、pdo_sqlsrv、sqlsrv、mongodb、amqp、rdkaf
 ```
 igbinary、redis、memcache、lzf、pdo_sqlsrv、sqlsrv、mongodb、amqp、rdkafka、xdebug
 ```
-> 7.2.30
+> 7.2.34
 ```
 igbinary、redis、memcache、lzf、pdo_sqlsrv、sqlsrv、mongodb、amqp、rdkafka、xdebug
 ```
