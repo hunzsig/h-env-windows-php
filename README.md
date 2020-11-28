@@ -47,11 +47,11 @@ igbinary、redis、memcache、lzf、pdo_sqlsrv、sqlsrv、mongodb、amqp、rdkaf
 ```
 igbinary、redis、memcache、lzf、pdo_sqlsrv、sqlsrv、mongodb、amqp、rdkafka、xdebug
 ```
-> 7.4.12
+> 7.4.13
 ```
 igbinary、redis、memcache、lzf、pdo_sqlsrv、sqlsrv、mongodb、amqp、rdkafka、xdebug
 ```
-> latest (7.4.12 without xdebug)
+> latest (7.4.13 without xdebug)
 ```
 igbinary、redis、memcache、lzf、pdo_sqlsrv、sqlsrv、mongodb、amqp、rdkafka
 ```
