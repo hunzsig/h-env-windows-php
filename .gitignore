@@ -2,4 +2,3 @@
 *.log
 logs/*
 dump.rdb
-h-web-env-windows.exe
