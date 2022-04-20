@@ -115,24 +115,6 @@ LICENSES FOR COMPONENTS
   THE SOFTWARE.
 
 
-  # LibreSSL (if included) --------------------------------------------------------------
-
-  LibReSSL files are retained under the copyright of the authors. New
-  additions are ISC licensed as per OpenBSD's normal licensing policy,
-  or are placed in the public domain. 
-
-  The OpenSSL code is distributed under the terms of the original OpenSSL
-  licenses which follow:
-
-  LICENSE ISSUES
-  ==============
-
-  The OpenSSL toolkit stays under a dual license, i.e. both the conditions of
-  the OpenSSL License and the original SSLeay license apply to the toolkit.
-  See below for the actual license texts.  In case of any license issues
-  related to OpenSSL please contact openssl-core@openssl.org.
-
-
   # LibXML2 -----------------------------------------------------------------------------
 
 Except where otherwise noted in the source code (e.g. the files hash.c,

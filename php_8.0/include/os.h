@@ -70,9 +70,11 @@
 #   elif _MSC_VER == 1900 /* (Visual Studio 2015) */
 #   define MSVC_COMPILER "Visual Studio 2015 (VC14)"
 #   elif _MSC_VER > 1900 && _MSC_VER < 1920 /* (Visual Studio 2017) */
-#   define MSVC_COMPILER "Visual Studio 2017 (VC15)"
+#   define MSVC_COMPILER "Visual Studio 2017 (VS15)"
 #   elif _MSC_VER >= 1920 && _MSC_VER < 1930 /* (Visual Studio 2019) */
-#   define MSVC_COMPILER "Visual Studio 2019 (VC16)"
+#   define MSVC_COMPILER "Visual Studio 2019 (VS16)"
+#   elif _MSC_VER >= 1930 && _MSC_VER < 1940 /* (Visual Studio 2022) */
+#   define MSVC_COMPILER "Visual Studio 2022 (VS17)"
 #   endif
 #endif
 
@@ -125,9 +127,6 @@ typedef enum {
 } ap_dlltoken_e;
 
 FARPROC ap_load_dll_func(ap_dlltoken_e fnLib, char* fnName, int ordinal);
-
-PSECURITY_ATTRIBUTES GetNullACL(void);
-void CleanNullACL(void *sa);
 
 #define AP_DECLARE_LATE_DLL_FUNC(lib, rettype, calltype, fn, ord, args, names) \
     typedef rettype (calltype *ap_winapi_fpt_##fn) args; \
