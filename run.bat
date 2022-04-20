@@ -26,9 +26,9 @@ SET TOOL_EXE=%TOP%\tool.exe
 
 SET DEP=%TOP%\dependent
 SET RunHiddenConsole=%DEP%\RunHiddenConsole
-SET NGINX_DIR=%DEP%\nginx-1.21.6\
-SET REDIS_DIR=%DEP%\Redis-x64-5.0.14.1\
-SET RABBITMQ_DIR=%DEP%\rabbitmq_server-3.9.15\sbin\
+SET NGINX=%DEP%\nginx-1.21.6\
+SET REDIS=%DEP%\Redis-x64-5.0.14.1\
+SET RABBITMQ=%DEP%\rabbitmq_server-3.9.15\sbin\
 
 color ff 
 TITLE PHP - 临时控制面板
@@ -44,6 +44,7 @@ tasklist|findstr /i "httpd.exe"
 tasklist|findstr /i "nginx.exe"
 tasklist|findstr /i "redis-server.exe"
 tasklist|findstr /i "erl.exe"
+tasklist|findstr /i "mysqld.exe"
 ECHO.----------------------------------------------------
 ECHO.[1] 启动/重启
 ECHO.[9] 关闭
@@ -63,10 +64,10 @@ GOTO MENU
 :start
 ECHO.输入PHP版本号(5.6-8.1):
 set /p VERSION=
+%TOOL_EXE% %VERSION%
 cd "%DEP%"
-%TOOL_EXE% %version%
-SET APACHE_DIR=%TOP%\php_%version%\bin\
-IF NOT EXIST "%APACHE_DIR%httpd.exe" (
+SET APACHE=%TOP%\php_%version%\bin\
+IF NOT EXIST "%APACHE%httpd.exe" (
 ECHO.Not support this php version！
 GOTO MENU
 )
@@ -75,6 +76,7 @@ call :startApache
 call :startNginx
 call :startRedis
 call :startRabbitmq
+call :startMysql
 GOTO MENU
 
 
@@ -86,13 +88,8 @@ GOTO MENU
 taskkill /F /IM httpd.exe > nul
 taskkill /F /IM nginx.exe > nul
 taskkill /F /IM redis-server.exe > nul
-set n=0
-for /f "tokens=5" %%i in ('netstat -aon ^| findstr ":5672"') do (
-    set n=%%i
-)
-if %n% gtr 0 (
-taskkill /F /PID %n%
-)
+start net stop RabbitMQ
+start net stop MySQL
 ECHO.[All][stoped]
 goto :eof
 
@@ -105,41 +102,40 @@ goto :eof
 %XDISK% 
 cd "%APACHE_DIR%" 
 %RunHiddenConsole% httpd.exe
-ECHO.[Default][PHP][OK]
-ECHO.[Default][Apache][OK]
+ECHO.[Default][PHP][E]
+ECHO.[Default][Apache][E]
 goto :eof
 
 
 :startNginx
-IF NOT EXIST "%NGINX_DIR%nginx.exe" (
+IF NOT EXIST "%NGINX%nginx.exe" (
 ECHO.[Dependent][Nginx][hasn't been decompressed yet]
 goto :eof
 )
 %XDISK% 
-cd "%NGINX_DIR%" 
+cd "%NGINX%" 
 start nginx.exe
-ECHO.[Dependent][Nginx][OK]
+ECHO.[Dependent][Nginx][E]
 goto :eof
 
 
 :startRedis
-IF NOT EXIST "%REDIS_DIR%redis-server.exe" (
+IF NOT EXIST "%REDIS%redis-server.exe" (
 ECHO.[Dependent][Redis][hasn't been decompressed yet]
 goto :eof
 )
 %XDISK% 
-cd "%REDIS_DIR%" 
+cd "%REDIS%" 
 %RunHiddenConsole% redis-server.exe
-ECHO.[Dependent][Redis][OK]
+ECHO.[Dependent][Redis][E]
 goto :eof
 
 :startRabbitmq
-IF NOT EXIST "%RABBITMQ_DIR%rabbitmq-server.bat" (
-ECHO.[Dependent][Rabbitmq][hasn't been decompressed yet]
+start net start RabbitMQ
+ECHO.[Dependent][Rabbitmq][E]
 goto :eof
-)
-%XDISK%
-cd "%RABBITMQ_DIR%"
-%RunHiddenConsole% rabbitmq-server.bat
-ECHO.[Dependent][Rabbitmq][OK]
+
+:startMysql
+start net start MySQL
+ECHO.[Dependent][MySQL][E]
 goto :eof

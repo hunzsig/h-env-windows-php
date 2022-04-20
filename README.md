@@ -48,7 +48,12 @@ nginx、redis、rabbitmq等
 #### 其他各种库请自行下载并放到dependent目录
 
 ```
-mysql、postgresql、mongo、redis等
+mysql、postgresql、mongo、redis、rabbitmq等
+
+mysql 需要注册进服务
+    bin mysqld.exe install MySQL
+rabbitmq 需要注册进服务
+    sbin\rabbitmq-service.bat install RabbitMQ
 ```
 
 > 根据run.bat里面的编写凑齐即可
