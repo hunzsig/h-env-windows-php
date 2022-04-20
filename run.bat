@@ -22,13 +22,13 @@ CD /D "%~dp0"
 cls 
 
 SET TOP=%cd%
-SET DEP=%TOP%\dependent
+SET TOOL_EXE=%TOP%\tool.exe
 
+SET DEP=%TOP%\dependent
 SET RunHiddenConsole=%DEP%\RunHiddenConsole
 SET NGINX_DIR=%DEP%\nginx-1.21.6\
-SET REDIS_DIR=%DEP%\Redis-x64-3.2.100\
-SET RABBITMQ_DIR=%DEP%\rabbitmq_server-3.7.15\sbin\
-SET PHPINI_EXE=%DEP%\dependent.exe
+SET REDIS_DIR=%DEP%\Redis-x64-5.0.14.1\
+SET RABBITMQ_DIR=%DEP%\rabbitmq_server-3.9.15\sbin\
 
 color ff 
 TITLE PHP - 临时控制面板
@@ -64,7 +64,7 @@ GOTO MENU
 ECHO.输入PHP版本号(5.6-8.1):
 set /p VERSION=
 cd "%DEP%"
-%PHPINI_EXE% %version%
+%TOOL_EXE% %version%
 SET APACHE_DIR=%TOP%\php_%version%\bin\
 IF NOT EXIST "%APACHE_DIR%httpd.exe" (
 ECHO.Not support this php version！
@@ -75,9 +75,6 @@ call :startApache
 call :startNginx
 call :startRedis
 call :startRabbitmq
-call :startElasticsearch
-call :startKibana
-call :startApm
 GOTO MENU
 
 
@@ -89,23 +86,8 @@ GOTO MENU
 taskkill /F /IM httpd.exe > nul
 taskkill /F /IM nginx.exe > nul
 taskkill /F /IM redis-server.exe > nul
-taskkill /F /IM apm-server.exe > nul
-set n=0
-for /f "tokens=5" %%i in ('netstat -aon ^| findstr ":5601"') do (
-    set n=%%i
-)
-if %n% gtr 0 (
-taskkill /F /PID %n%
-)
 set n=0
 for /f "tokens=5" %%i in ('netstat -aon ^| findstr ":5672"') do (
-    set n=%%i
-)
-if %n% gtr 0 (
-taskkill /F /PID %n%
-)
-set n=0
-for /f "tokens=5" %%i in ('netstat -aon ^| findstr ":9200"') do (
     set n=%%i
 )
 if %n% gtr 0 (
@@ -150,43 +132,6 @@ cd "%REDIS_DIR%"
 %RunHiddenConsole% redis-server.exe
 ECHO.[Dependent][Redis][OK]
 goto :eof
-
-
-:startElasticsearch
-IF NOT EXIST "%ELASTICSEARCH_DIR%elasticsearch.bat" (
-ECHO.[Dependent][Elasticsearch][hasn't been decompressed yet]
-goto :eof
-)
-%XDISK% 
-cd "%ELASTICSEARCH_DIR%" 
-%RunHiddenConsole% elasticsearch.bat
-ECHO.[Dependent][Elasticsearch][OK]
-goto :eof
-
-
-:startKibana
-IF NOT EXIST "%KIBANA_DIR%kibana.bat" (
-ECHO.[Dependent][Kibana][hasn't been decompressed yet]
-goto :eof
-)
-%XDISK% 
-cd "%KIBANA_DIR%" 
-%RunHiddenConsole% kibana.bat
-ECHO.[Dependent][Kibana][OK]
-goto :eof
-
-
-:startApm
-IF NOT EXIST "%APM_DIR%apm-server.exe" (
-ECHO.[Dependent][Apm][hasn't been decompressed yet]
-goto :eof
-)
-%XDISK% 
-cd "%APM_DIR%" 
-%RunHiddenConsole% apm-server.exe
-ECHO.[Dependent][Apm][OK]
-goto :eof
-
 
 :startRabbitmq
 IF NOT EXIST "%RABBITMQ_DIR%rabbitmq-server.bat" (
