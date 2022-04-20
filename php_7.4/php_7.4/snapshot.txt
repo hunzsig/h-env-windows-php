@@ -1,7 +1,7 @@
 This snapshot was automatically generated on
-Tue, 24 Nov 2020 13:46:35 +0000
+Thu, 14 Apr 2022 17:45:14 +0000
 
-Version: 7.4.13
+Version: 7.4.29
 Branch: HEAD
 Build: C:\php-snap-build\php74\vc15\x64\obj\Release_TS
 
