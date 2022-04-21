@@ -24,11 +24,10 @@ cls
 SET TOP=%cd%
 SET TOOL_EXE=%TOP%\tool.exe
 
-SET DEP=%TOP%\dependent
-SET RunHiddenConsole=%DEP%\RunHiddenConsole
-SET NGINX=%DEP%\nginx-1.21.6\
-SET REDIS=%DEP%\Redis-x64-5.0.14.1\
-SET RABBITMQ=%DEP%\rabbitmq_server-3.9.15\sbin\
+SET VENDOR=%TOP%\vendor
+SET PHP_CGI_SPAWNER=%VENDOR%\php-cgi-spawner.exe
+SET RunHiddenConsole=%VENDOR%\RunHiddenConsole.exe
+SET NGINX=%VENDOR%\nginx-1.21.6\
 
 color ff 
 TITLE PHP - 临时控制面板
@@ -40,11 +39,9 @@ ECHO %~0
 :MENU
 
 ECHO.----------------------进程列表----------------------
-tasklist|findstr /i "httpd.exe"
+tasklist|findstr /i "php-cgi-spawner.exe"
+tasklist|findstr /i "php-cgi.exe"
 tasklist|findstr /i "nginx.exe"
-tasklist|findstr /i "redis-server.exe"
-tasklist|findstr /i "erl.exe"
-tasklist|findstr /i "mysqld.exe"
 ECHO.----------------------------------------------------
 ECHO.[1] 启动/重启
 ECHO.[9] 关闭
@@ -62,21 +59,11 @@ ECHO.Not support this opreation！
 GOTO MENU
 
 :start
-ECHO.输入PHP版本号(5.6-8.1):
-set /p VERSION=
-%TOOL_EXE% %VERSION%
-cd "%DEP%"
-SET APACHE=%TOP%\php_%version%\bin\
-IF NOT EXIST "%APACHE%httpd.exe" (
-ECHO.Not support this php version！
-GOTO MENU
-)
+%TOOL_EXE%
+cd "%VENDOR%"
 call :shutdown
-call :startApache
+call :startPHP
 call :startNginx
-call :startRedis
-call :startRabbitmq
-call :startMysql
 GOTO MENU
 
 
@@ -85,25 +72,23 @@ call :shutdown
 GOTO MENU
 
 :shutdown
-taskkill /F /IM httpd.exe > nul
+taskkill /F /IM php-cgi-spawner.exe > nul
+taskkill /F /IM php-cgi.exe > nul
 taskkill /F /IM nginx.exe > nul
-taskkill /F /IM redis-server.exe > nul
-start net stop RabbitMQ
-start net stop MySQL
 ECHO.[All][stoped]
 goto :eof
 
 
-:startApache
-IF NOT EXIST "%APACHE_DIR%httpd.exe" (
-ECHO.[Default][Apache][not exist]
-goto :eof
-)
-%XDISK% 
-cd "%APACHE_DIR%" 
-%RunHiddenConsole% httpd.exe
+:startPHP
+start %VENDOR%php-cgi-spawner.exe php_56/php-cgi.exe 9056 4+16
+start %VENDOR%php-cgi-spawner.exe php_70/php-cgi.exe 9070 4+16
+start %VENDOR%php-cgi-spawner.exe php_71/php-cgi.exe 9071 4+16
+start %VENDOR%php-cgi-spawner.exe php_72/php-cgi.exe 9072 4+16
+start %VENDOR%php-cgi-spawner.exe php_73/php-cgi.exe 9073 4+16
+start %VENDOR%php-cgi-spawner.exe php_74/php-cgi.exe 9074 4+16
+start %VENDOR%php-cgi-spawner.exe php_80/php-cgi.exe 9080 4+16
+start %VENDOR%php-cgi-spawner.exe php_81/php-cgi.exe 9081 4+16
 ECHO.[Default][PHP][E]
-ECHO.[Default][Apache][E]
 goto :eof
 
 
@@ -116,26 +101,4 @@ goto :eof
 cd "%NGINX%" 
 start nginx.exe
 ECHO.[Dependent][Nginx][E]
-goto :eof
-
-
-:startRedis
-IF NOT EXIST "%REDIS%redis-server.exe" (
-ECHO.[Dependent][Redis][hasn't been decompressed yet]
-goto :eof
-)
-%XDISK% 
-cd "%REDIS%" 
-%RunHiddenConsole% redis-server.exe
-ECHO.[Dependent][Redis][E]
-goto :eof
-
-:startRabbitmq
-start net start RabbitMQ
-ECHO.[Dependent][Rabbitmq][E]
-goto :eof
-
-:startMysql
-start net start MySQL
-ECHO.[Dependent][MySQL][E]
 goto :eof

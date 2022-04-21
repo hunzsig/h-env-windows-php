@@ -9,20 +9,11 @@ import (
 )
 
 type SysData struct {
-	IsAdmin     bool
-	Ver         int
-	Args        []string
-	Pwd         string
-	Log         string
-	War3        string
-	Temp        string
-	Assets      string
-	Projects    string
-	ProjectName string
-	Vendor      string
-	Library     string
-	W3x2lni     string
-	WE          string
+	IsAdmin bool
+	Ver     int
+	Args    []string
+	Pwd     string
+	Vendor  string
 }
 
 var (
@@ -60,6 +51,7 @@ func GetVar() SysData {
 			data.Pwd, _ = os.Getwd()
 		}
 		data.Pwd, _ = filepath.Abs(data.Pwd)
+		data.Vendor = data.Pwd + "/vendor"
 	}
 	return data
 }

@@ -50,10 +50,13 @@ nginx、redis、rabbitmq等
 ```
 mysql、postgresql、mongo、redis、rabbitmq等
 
-mysql 需要注册进服务
-    bin mysqld.exe install MySQL
-rabbitmq 需要注册进服务
-    sbin\rabbitmq-service.bat install RabbitMQ
+需要注册进服务
+    mysql
+        bin\mysqld.exe install MySQL
+    rabbitmq
+        sbin\rabbitmq-service.bat install RabbitMQ
+    redis
+        \redis-server.exe --service-install redis.windows-service.conf --service-name Redis --loglevel verbose
 ```
 
 > 根据run.bat里面的编写凑齐即可
