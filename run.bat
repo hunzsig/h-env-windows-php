@@ -80,14 +80,14 @@ goto :eof
 
 
 :startPHP
-start %VENDOR%php-cgi-spawner.exe php_56/php-cgi.exe 9056 4+16
-start %VENDOR%php-cgi-spawner.exe php_70/php-cgi.exe 9070 4+16
-start %VENDOR%php-cgi-spawner.exe php_71/php-cgi.exe 9071 4+16
-start %VENDOR%php-cgi-spawner.exe php_72/php-cgi.exe 9072 4+16
-start %VENDOR%php-cgi-spawner.exe php_73/php-cgi.exe 9073 4+16
-start %VENDOR%php-cgi-spawner.exe php_74/php-cgi.exe 9074 4+16
-start %VENDOR%php-cgi-spawner.exe php_80/php-cgi.exe 9080 4+16
-start %VENDOR%php-cgi-spawner.exe php_81/php-cgi.exe 9081 4+16
+start %PHP_CGI_SPAWNER% php_5.6/php-cgi.exe 9056 4+16
+start %PHP_CGI_SPAWNER% php_7.0/php-cgi.exe 9070 4+16
+start %PHP_CGI_SPAWNER% php_7.1/php-cgi.exe 9071 4+16
+start %PHP_CGI_SPAWNER% php_7.2/php-cgi.exe 9072 4+16
+start %PHP_CGI_SPAWNER% php_7.3/php-cgi.exe 9073 4+16
+start %PHP_CGI_SPAWNER% php_7.4/php-cgi.exe 9074 4+16
+start %PHP_CGI_SPAWNER% php_8.0/php-cgi.exe 9080 4+16
+start %PHP_CGI_SPAWNER% php_8.1/php-cgi.exe 9081 4+16
 ECHO.[Default][PHP][E]
 goto :eof
 
