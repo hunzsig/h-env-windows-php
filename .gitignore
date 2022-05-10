@@ -1,4 +1,8 @@
 .idea/
 *.log
-logs/*
+logs
+service/*
 dump.rdb
+vendor/nginx/conf/vhost.d/*
+!vendor/nginx/conf/vhost.d/default.conf
+!vendor/nginx/conf/vhost.d/example.conf

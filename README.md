@@ -11,7 +11,8 @@
 ### 默认库
 
 ```
-apache
+nginx
+    1.21.6
 php
     5.6.40
     7.0.33
@@ -35,28 +36,20 @@ php
     amqp、rdkafka
 ```
 
-### 可选依赖服务
+#### 其他服务请自行下载并放到喜欢的目录
 
-#### 拓展服务都压缩放置于dependent，需要某个时，直接压缩到目录即可
-
-#### 都是默认端口，可自行修改
-
-```
-nginx、redis、rabbitmq等
-```
-
-#### 其他各种库请自行下载并放到dependent目录
+> 如 ./service/...
 
 ```
 mysql、postgresql、mongo、redis、rabbitmq等
 
 需要注册进服务
     mysql
-        bin\mysqld.exe install MySQL
+        ./service/mysql-8.0.28-winx64/bin/mysqld.exe install MySQL
     rabbitmq
-        sbin\rabbitmq-service.bat install RabbitMQ
+        ./services/rabbitmq_server-3.9.15/sbin/rabbitmq-service.bat install RabbitMQ
     redis
-        \redis-server.exe --service-install redis.windows-service.conf --service-name Redis --loglevel verbose
+        ./service/Redis-x64-5.0.14.1/redis-server.exe --service-install redis.windows-service.conf --service-name Redis --loglevel verbose
 ```
 
 > 根据run.bat里面的编写凑齐即可

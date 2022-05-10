@@ -27,7 +27,7 @@ SET TOOL_EXE=%TOP%\tool.exe
 SET VENDOR=%TOP%\vendor
 SET PHP_CGI_SPAWNER=%VENDOR%\php-cgi-spawner.exe
 SET RunHiddenConsole=%VENDOR%\RunHiddenConsole.exe
-SET NGINX=%VENDOR%\nginx-1.21.6\
+SET NGINX=%VENDOR%\nginx\
 
 color ff 
 TITLE PHP - ¡Ÿ ±øÿ÷∆√Ê∞Â
